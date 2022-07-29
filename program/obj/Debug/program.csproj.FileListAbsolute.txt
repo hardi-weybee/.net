@@ -5,3 +5,10 @@ D:\.net\firstProgram\program\obj\Debug\program.csproj.AssemblyReference.cache
 D:\.net\firstProgram\program\obj\Debug\program.csproj.CoreCompileInputs.cache
 D:\.net\firstProgram\program\obj\Debug\program.exe
 D:\.net\firstProgram\program\obj\Debug\program.pdb
+D:\.net\.net\program\bin\Debug\program.exe.config
+D:\.net\.net\program\bin\Debug\program.exe
+D:\.net\.net\program\bin\Debug\program.pdb
+D:\.net\.net\program\obj\Debug\program.csproj.AssemblyReference.cache
+D:\.net\.net\program\obj\Debug\program.csproj.CoreCompileInputs.cache
+D:\.net\.net\program\obj\Debug\program.exe
+D:\.net\.net\program\obj\Debug\program.pdb
