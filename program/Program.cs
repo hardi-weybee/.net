@@ -214,10 +214,10 @@ namespace program
 
             //// 6. out parameter
             //int num1 = 10;
-            //Console.Write("\n------------------Out parameter-------------------");
-            //Console.Write("\nValue before function call : " + num1);
+            //Console.Write("\n------------------out parameter-------------------");
+            //Console.Write("\nvalue before function call : " + num1);
             //first.OutParamater(out num1);
-            //Console.Write("\nValue after function call : " + num1);
+            //Console.Write("\nvalue after function call : " + num1);
             //Console.ReadLine();
 
 
@@ -362,48 +362,80 @@ namespace program
 
 
             // Object and class 
-            Student info = new Student()
+            //    Student info = new Student()
+            //    {
+            //        name = "Hardi",
+            //        age = 21
+
+            //    };
+            //    Console.Write("\n" + info.name + " " + info.age);
+            //    Console.ReadLine();
+
+            //    Console.Write("\n------display data through method--------\n");
+            //    Student s1 = new Student("Rishit", 21);
+            //    Student s2 = new Student("Misari", 20);
+            //    //s1.Insert("Rishit", 21);
+            //    //s2.Insert("Misari", 20);
+            //    s1.Print();
+            //    s2.Print();            
+            //    Console.Write("\nTotal Objects are : " + Student.count);
+            //    Console.ReadLine();
+
+
+            //    // struct
+            //    Planet one = new Planet("Mercury");
+            //    Planet two = one;
+            //    one.name = "Earth";
+            //    Console.Write("\nFirst Planet is " + two.name);
+            //    Console.ReadLine();
+
+
+            //    // enum
+            //    int x = (int)Months.Feb;
+            //    int y = (int)Months.May;
+            //    int z = (int)Months.Dec;
+            //    Console.Write("\n-----------Enumerators------------\n");
+            //    Console.WriteLine($"February : {x}");
+            //    Console.WriteLine($"May : {y}");
+            //    Console.WriteLine($"December : {z}");
+
+            //    foreach(Months d in Enum.GetValues(typeof(Months)))
+            //    {
+            //        Console.WriteLine(d);
+            //    }
+            //    Console.ReadLine();
+
+
+            // inheritance
+            Car c1 = new Car();
+            Console.Write("\nVehicle color is : " + c1.color);
+            Console.Write("\nVehicle has " + c1.numberOfAirbags + " number of airbags");
+
+            // inheritance (methods)
+            Console.Write("\n\n------------Method inheritance---------------");
+            c1.Vehicle();
+            c1.Items();
+            Console.ReadLine();
+        }
+
+        public class Vehicles
+        {
+            public string color = "Black";
+
+            public void Vehicle()
             {
-                name = "Hardi",
-                age = 21
-
-            };
-            Console.Write("\n" + info.name + " " + info.age);
-            Console.ReadLine();
-
-            Console.Write("\n------display data through method--------\n");
-            Student s1 = new Student("Rishit", 21);
-            Student s2 = new Student("Misari", 20);
-            //s1.Insert("Rishit", 21);
-            //s2.Insert("Misari", 20);
-            s1.Print();
-            s2.Print();            
-            Console.Write("\nTotal Objects are : " + Student.count);
-            Console.ReadLine();
-
-
-            // struct
-            Planet one = new Planet("Mercury");
-            Planet two = one;
-            one.name = "Earth";
-            Console.Write("\nFirst Planet is " + two.name);
-            Console.ReadLine();
-
-
-            // enum
-            int x = (int)Months.Feb;
-            int y = (int)Months.May;
-            int z = (int)Months.Dec;
-            Console.Write("\n-----------Enumerators------------\n");
-            Console.WriteLine($"February : {x}");
-            Console.WriteLine($"May : {y}");
-            Console.WriteLine($"December : {z}");
-
-            foreach(Months d in Enum.GetValues(typeof(Months)))
-            {
-                Console.WriteLine(d);
+                Console.Write("\nA Truck is also a vehicle");
             }
-            Console.ReadLine();
+        }
+
+        public class Car: Vehicles
+        {
+            public int numberOfAirbags = 3;
+
+            public void Items()
+            {
+                Console.Write("\nElectric vehicle is also a vehicle");
+            }
         }
 
 
