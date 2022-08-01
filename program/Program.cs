@@ -6,21 +6,6 @@ using System.Threading.Tasks;
 
 namespace program
 {
-    public class Student
-    {
-        public string name;
-        public int age;
-        public void Insert(string str, int number)
-        {
-            name = str;
-            age = number;
-        }
-
-        public void Print()
-        {
-            Console.WriteLine(name + " " + age);
-        }
-    }
     class Program
     {
         void FirstFunction()
@@ -350,27 +335,27 @@ namespace program
 
             //// Exercise pattern
 
-            //Console.Write("\n----------Print the pattern-----------");
+            //Console.Write("\n----------print the pattern-----------");
             //p:
-            //    Console.Write("\nEnter any number from 1 to 26 : ");
+            //    Console.Write("\nenter any number from 1 to 26 : ");
             //    int pattern = Convert.ToInt32(Console.ReadLine());
 
-            //    if(pattern <= 0 || pattern > 26) 
-            //    {
-            //        goto p;
-            //    }
+            //if (pattern <= 0 || pattern > 26)
+            //{
+            //    goto p;
+            //}
 
-            //for(int i=0; i<pattern; i++)
+            //for (int i = 0; i < pattern; i++)
             //{
             //    //int x = 65;
-            //    for(int j=0; j<=i; j++)
+            //    for (int j = 0; j <= i; j++)
             //    {
             //        Console.Write((char)(j + 65) + " ");
             //        //x++;
             //    }
-            //    for(int k=i-1; k>=0; k--)
+            //    for (int k = i-1; k >= 0; k--)
             //    {
-            //        Console.Write((char)(k + 65) + " ");               
+            //        Console.Write((char)(k + 65) + " ");
             //    }
             //    Console.ReadLine();
             //}
@@ -383,17 +368,105 @@ namespace program
                 age = 21
 
             };
-            Console.Write(info.name + " " + info.age);
+            Console.Write("\n" + info.name + " " + info.age);
             Console.ReadLine();
 
             Console.Write("\n------display data through method--------\n");
-            Student s1 = new Student();
-            Student s2 = new Student();
-            s1.Insert("Rishit", 21);
-            s2.Insert("Misari", 20);
+            Student s1 = new Student("Rishit", 21);
+            Student s2 = new Student("Misari", 20);
+            //s1.Insert("Rishit", 21);
+            //s2.Insert("Misari", 20);
             s1.Print();
-            s2.Print();
+            s2.Print();            
+            Console.Write("\nTotal Objects are : " + Student.count);
             Console.ReadLine();
+
+
+            // struct
+            Planet one = new Planet("Mercury");
+            Planet two = one;
+            one.name = "Earth";
+            Console.Write("\nFirst Planet is " + two.name);
+            Console.ReadLine();
+
+
+            // enum
+            int x = (int)Months.Feb;
+            int y = (int)Months.May;
+            int z = (int)Months.Dec;
+            Console.Write("\n-----------Enumerators------------\n");
+            Console.WriteLine($"February : {x}");
+            Console.WriteLine($"May : {y}");
+            Console.WriteLine($"December : {z}");
+
+            foreach(Months d in Enum.GetValues(typeof(Months)))
+            {
+                Console.WriteLine(d);
+            }
+            Console.ReadLine();
+        }
+
+
+        public class Student
+        {
+            public string name;
+            public int age;
+            public static float rateOfInterest;
+            public static int count = 0;
+
+            // default constructor
+            public Student()
+            {
+                Console.Write("\nhellooooooooooooooooooooooooooooooooo");
+            }
+
+            // destructor
+            ~Student()
+            {
+                Console.Write("\nhello");
+                Console.ReadLine();
+            }
+
+            // parameterized constructor and this keyword
+            public Student(string name, int age)
+            {
+                this.name = name;
+                this.age = age;
+                count++;
+            }
+
+            static Student()
+            {
+                rateOfInterest = 3.3f;
+            }
+
+            //public void Insert(string str, int number)
+            //{
+            //    name = str;
+            //    age = number;
+            //}
+
+            public void Print()
+            {
+                Console.WriteLine(name + " " + age + " " + rateOfInterest);
+            }
+        }  
+        
+        // structs
+        public struct Planet
+        {
+            public string name;
+
+            public Planet(string str)
+            {
+                name = str;
+            }
+        }
+
+        // enum
+        public enum Months
+        {
+            Jan, Feb, Mar, Apr, May, June, July, Aug, Sept, Oct, Nov, Dec
         }
     }
 }
