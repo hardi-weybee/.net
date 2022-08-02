@@ -339,7 +339,7 @@ namespace program
 
             Console.Write("\n----------print the pattern-----------");
             p:
-                Console.Write("\nenter any number from 1 to 26 : ");
+                Console.Write("\nEnter any number from 1 to 26 : ");
                 int pattern = Convert.ToInt32(Console.ReadLine());
 
             if (pattern <= 0 || pattern > 26)
@@ -373,7 +373,7 @@ namespace program
             Console.Write("\n" + info.name + " " + info.age);
             Console.ReadLine();
 
-            Console.Write("\n-------------Displaying data through method--------------\n");
+            Console.WriteLine("\n\n-------------Displaying data through method--------------\n");
             Student s1 = new Student("Rishit", 21);
             Student s2 = new Student("Misari", 20);
             //s1.Insert("Rishit", 21);
@@ -385,7 +385,7 @@ namespace program
 
 
             // struct
-            Console.Write("\n------------Struct-------------------");
+            Console.WriteLine("\n\n------------Struct-------------------");
             Planet one = new Planet("Mercury");
             Planet two = one;
             one.name = "Earth";
@@ -397,7 +397,7 @@ namespace program
             int x = (int)Months.Feb;
             int y = (int)Months.May;
             int z = (int)Months.Dec;
-            Console.Write("\n-----------Enumerators------------\n");
+            Console.WriteLine("\n\n-----------Enumerators------------\n");
             Console.WriteLine($"February : {x}");
             Console.WriteLine($"May : {y}");
             Console.WriteLine($"December : {z}");
@@ -410,27 +410,100 @@ namespace program
 
 
             // inheritance
-            Console.Write("------------Class inheritance---------------");
+            Console.WriteLine("------------Class inheritance---------------");
             Car c1 = new Car();
             Console.Write("\nVehicle color is : " + c1.color);
             Console.Write("\nVehicle has " + c1.numberOfAirbags + " number of airbags");
 
 
             // inheritance (methods)
-            Console.Write("\n\n------------Method inheritance---------------");
+            Console.WriteLine("\n\n------------Method inheritance---------------");
             c1.Vehicle();
             c1.Items();
             Console.ReadLine();
 
 
             // aggregation
-            Console.Write("\n------------------Aggregation-----------------------");
+            Console.WriteLine("\n\n------------------Aggregation-----------------------");
             Address a1 = new Address("Ring road", "Rajkot", "Gujarat");
             Employees e1 = new Employees("Hardi", a1);
             Console.Write("\n" + e1.nameOfEmployee + ", " + a1.addressLine + ", " + a1.city + ", " + a1.state);
             Console.ReadLine();
+
+
+            // member overloading
+            Console.WriteLine("\n\n----------------Member Overloading-------------------");
+            Console.Write(operations.addition(2, 5));
+            Console.Write("\n" + operations.addition(2.2f, 5.6f));
+            Console.ReadLine();
+
+
+            // method overriding
+            Console.WriteLine("\n\n--------------Method overriding--------------------");
+            Dog dog = new Dog();
+            dog.walk();
+
+            Console.WriteLine("\n\n-------Method overriding (base class constructor)--------");
+            Page p = new Page();
+            Console.ReadLine();
+
+
+            // ploymorphism
+            Console.WriteLine("\n\n-----------------Ploymorphism-----------------");
+            Friends fr = new Friends();
+            Naruto na = new Naruto();
+
+            Series[] ser = {fr, na};
+            foreach(Series s in ser)
+            {
+               s.cast();
+            }
+
+            //Series s;
+            //s = new Series();
+            //s.cast();
+            //s = new Friends();
+            //s.cast();
+            //s = new Naruto();
+            //s.cast();
+            Console.ReadLine();
+
+
+            // abstract
+            Console.WriteLine("\n\n-----------------Abstraction-----------------");
+            Country c;
+            c = new India();
+            c.state();
+            c = new US();
+            c.state();
+            Console.ReadLine();
+
+
+            // interface
+            Console.WriteLine("\n\n-----------------Interface-----------------");
+            Chocolate choco;
+            choco = new Dark();
+            choco.cocoa();
+            choco = new Milk();
+            choco.cocoa();
+            Console.ReadLine();
+
+
+            // encapsulation
+            Console.WriteLine("\n\n-----------------Encapsulation-----------------");
+            students st = new students();
+            st.ID = "1";
+            st.Name = "Misari";
+            st.Standard = "7th";
+
+            Console.WriteLine("ID = " + st.ID);
+            Console.WriteLine("Name = " + st.Name);
+            Console.WriteLine("Standard = " + st.Standard);
+            Console.ReadLine();
         }
-     
+
+
+        
 
         // object and class
         public class Student
@@ -540,5 +613,140 @@ namespace program
                 this.address = address;
             }
         }
+
+
+        // member overloading
+        public static class operations
+        {
+            public static int addition(int x, int y)
+            {
+                return x + y;
+            }
+
+            public static float addition(float x, float y)
+            {
+                return x + y;
+            }
+        }
+
+
+        // method overriding
+        public class Animal
+        {
+            public string s = "Partner";
+            public virtual void walk()
+            {
+                Console.Write("\nWalking " + s);
+            }
+        }
+        public class Dog:Animal
+        {
+            public override void walk()
+            {
+                base.walk();             
+                Console.Write("\nDog is walking");
+            }
+        }
+
+        // method overriding (base class constructor internally)
+        public class Book
+        {
+            public string s1 = "Great wall";
+            public Book()
+            {
+                Console.Write("\nBook is " + s1);
+            }
+        }
+        public class Page:Book
+        {
+            public Page()
+            {            
+                Console.Write("\nBook has 560 pages");
+            }
+        }
+
+
+        // polymorphism
+        public class Series
+        {
+            public virtual void cast()
+            {
+                Console.Write("\nThe best charactersss");
+            }
+        }
+        public class Friends:Series
+        {
+            public sealed override void cast()
+            {
+                Console.Write("\nChandler is the best character");
+            }
+        }
+
+        //// sealed
+        //public class Chandler:Friends
+        //{
+        //    public override void cast()
+        //    {
+        //        Console.Write("\nChandlerrrrrrrrrrrrrr");
+        //    }
+        //}
+        public class Naruto:Series
+        {
+            public override void cast()
+            {
+                Console.Write("\nKakashi is the best character");
+            }
+        }
+
+        // abstract
+        public abstract class Country
+        {
+            public abstract void state();
+        }
+        public class India:Country
+        {
+            public override void state()
+            {
+                Console.Write("\nThere are 28 states in India");
+            }
+        }
+        public class US:Country
+        {
+            public override void state()
+            {
+                Console.Write("\nThere are 50 states in US");
+            }
+        }
+
+        // interface
+        public interface Chocolate
+        {
+            void cocoa();
+        }
+        public class Dark:Chocolate
+        {
+            public void cocoa()
+            {
+                Console.Write("\n50-90% Cocoa is present");
+            }
+        }
+        public class Milk:Chocolate
+        {
+            public void cocoa()
+            {
+                Console.Write("\n20-30% Cocoa is present");
+            }
+        }       
+    }
+}
+
+// encapsulation
+namespace program
+{
+    class students
+    {
+        public string ID { get; set;}
+        public string Name { get; set;}
+        public string Standard { get; set;}
     }
 }
