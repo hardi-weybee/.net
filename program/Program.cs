@@ -110,7 +110,7 @@ namespace program
         }
 
         // array class and methods
-        void print(int[] array)
+        void Print(int[] array)
         {
             foreach(Object a in array)
             {
@@ -230,14 +230,14 @@ namespace program
 
 
         // member overloading
-        public static class operations
+        public static class Operations
         {
-            public static int addition(int x, int y)
+            public static int Addition(int x, int y)
             {
                 return x + y;
             }
 
-            public static float addition(float x, float y)
+            public static float Addition(float x, float y)
             {
                 return x + y;
             }
@@ -248,16 +248,16 @@ namespace program
         public class Animal
         {
             public string s = "Partner";
-            public virtual void walk()
+            public virtual void Walk()
             {
                 Console.Write("\nWalking " + s);
             }
         }
         public class Dog : Animal
         {
-            public override void walk()
+            public override void Walk()
             {
-                base.walk();
+                base.Walk();
                 Console.Write("\nDog is walking");
             }
         }
@@ -283,14 +283,14 @@ namespace program
         // polymorphism
         public class Series
         {
-            public virtual void cast()
+            public virtual void Cast()
             {
                 Console.Write("\nThe best charactersss");
             }
         }
         public class Friends : Series
         {
-            public sealed override void cast()
+            public sealed override void Cast()
             {
                 Console.Write("\nChandler is the best character");
             }
@@ -299,14 +299,14 @@ namespace program
         //// sealed
         //public class Chandler:Friends
         //{
-        //    public override void cast()
+        //    public override void Cast()
         //    {
         //        Console.Write("\nChandlerrrrrrrrrrrrrr");
         //    }
         //}
         public class Naruto : Series
         {
-            public override void cast()
+            public override void Cast()
             {
                 Console.Write("\nKakashi is the best character");
             }
@@ -315,18 +315,18 @@ namespace program
         // abstract
         public abstract class Country
         {
-            public abstract void state();
+            public abstract void State();
         }
         public class India : Country
         {
-            public override void state()
+            public override void State()
             {
                 Console.Write("\nThere are 28 states in India");
             }
         }
         public class US : Country
         {
-            public override void state()
+            public override void State()
             {
                 Console.Write("\nThere are 50 states in US");
             }
@@ -335,18 +335,18 @@ namespace program
         // interface
         public interface Chocolate
         {
-            void cocoa();
+            void Cocoa();
         }
         public class Dark : Chocolate
         {
-            public void cocoa()
+            public void Cocoa()
             {
                 Console.Write("\n50-90% Cocoa is present");
             }
         }
         public class Milk : Chocolate
         {
-            public void cocoa()
+            public void Cocoa()
             {
                 Console.Write("\n20-30% Cocoa is present");
             }
@@ -354,18 +354,18 @@ namespace program
 
 
         // user defined exception
-        public class myException : Exception
+        public class MyException : Exception
         {
-            public myException(string msg) : base(msg)
+            public MyException(string msg) : base(msg)
             {
 
             }
         }
-        static void okay(int i)
+        static void Okay(int i)
         {
             if (i <100)
             {
-                throw new myException("Number is less than 100");
+                throw new MyException("Number is less than 100");
             }
         }
 
@@ -377,64 +377,64 @@ namespace program
             Console.WriteLine("Hello There !!");
             Console.ReadLine();
 
-            // Arithmetic operations
-            Console.Write("-------------Arithmetic operations-------------------");
-            goto1:
-                Console.Write("\nEnter first number for arithmetic operations: ");
-                int a = Convert.ToInt32(Console.ReadLine());
+            //// Arithmetic operations
+            //Console.Write("-------------Arithmetic operations-------------------");
+            //goto1:
+            //    Console.Write("\nEnter first number for arithmetic operations: ");
+            //    int a = Convert.ToInt32(Console.ReadLine());
 
-                if (a == 0 )
-                {
-                    goto goto1;
-                }
+            //    if (a == 0 )
+            //    {
+            //        goto goto1;
+            //    }
 
-            goto2:
-                Console.Write("Enter second number for arithmetic operations: ");
-                int b = Convert.ToInt32(Console.ReadLine());
+            //goto2:
+            //    Console.Write("Enter second number for arithmetic operations: ");
+            //    int b = Convert.ToInt32(Console.ReadLine());
 
-                if(b == 0)
-                {
-                    goto goto2;
-                }
+            //    if(b == 0)
+            //    {
+            //        goto goto2;
+            //    }
 
-            int sum = a + b;
-            int subtract = a - b;
-            int multiply = a * b;
-            int divide = a / b;
-            int mod = a % b;
+            //int sum = a + b;
+            //int subtract = a - b;
+            //int multiply = a * b;
+            //int divide = a / b;
+            //int mod = a % b;
 
-            Console.WriteLine($"\nsum of {a} + {b} = {sum}");
-            Console.WriteLine($"subtraction of {a} - {b} = {subtract}");
-            Console.WriteLine($"multiplication of {a} * {b} = {multiply}");
-            Console.WriteLine($"division of {a} / {b} = {divide}");
-            Console.WriteLine($"mod of {a} % {b} = {mod}");
-            Console.ReadLine();
+            //Console.WriteLine($"\nsum of {a} + {b} = {sum}");
+            //Console.WriteLine($"subtraction of {a} - {b} = {subtract}");
+            //Console.WriteLine($"multiplication of {a} * {b} = {multiply}");
+            //Console.WriteLine($"division of {a} / {b} = {divide}");
+            //Console.WriteLine($"mod of {a} % {b} = {mod}");
+            //Console.ReadLine();
 
 
 
-            // swapping two number without using third variable
+            //// swapping two number without using third variable
 
-            Console.Write("--------------Swapping of numbers---------------");
-            Console.Write("\nEnter first number for swapping: ");
-            int firstnumber = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("--------------Swapping of numbers---------------");
+            //Console.Write("\nEnter first number for swapping: ");
+            //int firstnumber = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter second number for swapping: ");
-            int secondnumber = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Enter second number for swapping: ");
+            //int secondnumber = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"before swapping: {firstnumber}, {secondnumber}");
+            //Console.WriteLine($"before swapping: {firstnumber}, {secondnumber}");
 
-            //try other way without addition and substraction
+            ////try other way without addition and substraction
 
-            //firstnumber = firstnumber + secondnumber;
-            //secondnumber = firstnumber - secondnumber;
-            //firstnumber = firstnumber - secondnumber;
+            ////firstnumber = firstnumber + secondnumber;
+            ////secondnumber = firstnumber - secondnumber;
+            ////firstnumber = firstnumber - secondnumber;
 
-            firstnumber = firstnumber * secondnumber;
-            secondnumber = firstnumber / secondnumber;
-            firstnumber = firstnumber / secondnumber;
+            //firstnumber *= secondnumber;
+            //secondnumber = firstnumber / secondnumber;
+            //firstnumber /= secondnumber;
 
-            Console.Write($"after swapping: {firstnumber}, {secondnumber}");
-            Console.ReadLine();
+            //Console.Write($"after swapping: {firstnumber}, {secondnumber}");
+            //Console.ReadLine();
 
 
             //// functions
@@ -566,17 +566,17 @@ namespace program
 
             //Array.Sort(array8);
             //Console.Write("\nsorted array elements : ");
-            //first.print(array8);
+            //first.Print(array8);
 
             //Console.Write("\nindex of element 30 in array : " + Array.IndexOf(array8, 30));
 
             //Array.Reverse(array8);
             //Console.Write("\narray is reversed : ");
-            //first.print(array8);
+            //first.Print(array8);
 
             //Array.Copy(array8, array9, array8.Length);
             //Console.Write("\narray is copied to second array having element : ");
-            //first.print(array9);
+            //first.Print(array9);
             //Console.ReadLine();
 
 
@@ -691,15 +691,15 @@ namespace program
 
             //// member overloading
             //Console.WriteLine("\n\n----------------Member Overloading-------------------");
-            //Console.Write(operations.addition(2, 5));
-            //Console.Write("\n" + operations.addition(2.2f, 5.6f));
+            //Console.Write(Operations.Addition(2, 5));
+            //Console.Write("\n" + Operations.Addition(2.2f, 5.6f));
             //Console.ReadLine();
 
 
             //// method overriding
             //Console.WriteLine("\n\n--------------Method overriding--------------------");
             //Dog dog = new Dog();
-            //dog.walk();
+            //dog.Walk();
 
             //Console.WriteLine("\n\n-------Method overriding (base class constructor)--------");
             //Page p = new Page();
@@ -714,16 +714,16 @@ namespace program
             //Series[] ser = {fr, na};
             //foreach(Series s in ser)
             //{
-            //   s.cast();
+            //   s.Cast();
             //}
 
             ////Series s;
             ////s = new Series();
-            ////s.cast();
+            ////s.Cast();
             ////s = new Friends();
-            ////s.cast();
+            ////s.Cast();
             ////s = new Naruto();
-            ////s.cast();
+            ////s.Cast();
             //Console.ReadLine();
 
 
@@ -731,9 +731,9 @@ namespace program
             //Console.WriteLine("\n\n-----------------Abstraction-----------------");
             //Country c;
             //c = new India();
-            //c.state();
+            //c.State();
             //c = new US();
-            //c.state();
+            //c.State();
             //Console.ReadLine();
 
 
@@ -741,15 +741,15 @@ namespace program
             //Console.WriteLine("\n\n-----------------Interface-----------------");
             //Chocolate choco;
             //choco = new Dark();
-            //choco.cocoa();
+            //choco.Cocoa();
             //choco = new Milk();
-            //choco.cocoa();
+            //choco.Cocoa();
             //Console.ReadLine();
 
 
             //// encapsulation
             //Console.WriteLine("\n\n-----------------Encapsulation-----------------");
-            //students st = new students();
+            //Students st = new Students();
             //st.ID = "1";
             //st.Name = "Misari";
             //st.Standard = "7th";
@@ -760,68 +760,218 @@ namespace program
             //Console.ReadLine();
 
 
-            // exception handling (try-catch)
-            Console.WriteLine("\n\n-----------------Exception handling-----------------");
-            try
-            {
-                int start = 5;
-                int end = 0;
-                int div = start / end;
-            } catch (Exception e)
-            {
-                Console.Write(e);
-            } finally
-            {
-                Console.Write("\n\nFinalyyyyyyyyyyyyyyyyyyyyyyyy");
-            }
-            Console.Write("\nNext stage");
-            Console.ReadLine();
-
-
-            // user defined exception
-            Console.WriteLine("\n\n-----------------User defined exception-----------------");
-            try
-            {
-                Console.Write("Enter any positive number to check whether it gives exception or not :");
-                int any = Convert.ToInt32(Console.ReadLine());
-                okay(any);
-            } catch (myException e)
-            {
-                Console.Write(e);
-            }
-            Console.Write("\nContinue.........");
-            Console.ReadLine();
-
-
-            // checked and unchecked
-            Console.WriteLine("\n\n-----------------Checked and Unchecked-----------------");
-
-            // without using checkced
-            int h = int.MaxValue;
-            Console.Write("Without using checked : " + (h+10));
-
-            //// using checked
-            //checked
+            //// exception handling (try-catch)
+            //Console.WriteLine("\n\n-----------------Exception handling-----------------");
+            //try
             //{
-            //    int h1 = int.MaxValue;
-            //    Console.Write(h1 + 10);
+            //    int start = 5;
+            //    int end = 0;
+            //    int div = start / end;
+            //} catch (Exception e)
+            //{
+            //    Console.Write(e);
+            //} finally
+            //{
+            //    Console.Write("\n\nFinalyyyyyyyyyyyyyyyyyyyyyyyy");
             //}
+            //Console.Write("\nNext stage");
+            //Console.ReadLine();
 
-            // using unchecked
-            unchecked
+
+            //// user defined exception
+            //Console.WriteLine("\n\n-----------------User defined exception-----------------");
+            //try
+            //{
+            //    Console.Write("Enter any positive number to check whether it gives exception or not :");
+            //    int any = Convert.ToInt32(Console.ReadLine());
+            //    Okay(any);
+            //} catch (MyException e)
+            //{
+            //    Console.Write(e);
+            //}
+            //Console.Write("\nContinue.........");
+            //Console.ReadLine();
+
+
+            //// checked and unchecked
+            //Console.WriteLine("\n\n-----------------Checked and Unchecked-----------------");
+
+            //// without using checkced
+            //int h = int.MaxValue;
+            //Console.Write("Without using checked : " + (h + 10));
+
+            ////// using checked
+            ////checked
+            ////{
+            ////    int h1 = int.MaxValue;
+            ////    Console.Write(h1 + 10);
+            ////}
+
+            //// using unchecked
+            //unchecked
+            //{
+            //    int h2 = int.MaxValue;
+            //    Console.Write("\nUsing unchecked : " + (h2 + 2));
+            //}
+            //Console.ReadLine();
+
+
+            //// system exception
+            //Console.WriteLine("\n\n-----------------SystemException-----------------");
+            //try
+            //{
+            //    string[] arr = new string[5];
+            //    arr[10] = "Good Morning";
+            //} catch(SystemException e)
+            //{
+            //    Console.Write(e);
+            //}
+            //Console.ReadLine();
+
+
+            // collection
+            // 1. list<>
+            Console.WriteLine("\n\n------------------------Collection-------------------");
+            Console.Write("\n---1. List---\n");
+            List<string> l = new List<string> { "Kakashi Hatake", "Minato Namikaze", "Naruto Uzumaki", "Chandler Bing", "Phoebe Buffay" };
+            l.Add("Kakashi Hatake");
+            //l.Add("Minato Namikaze");
+            //l.Add("Naruto Uzumaki");
+            //l.Add("Chandler Bing");
+            //l.Add("Phoebe Buffay");
+
+            for (int i= 0; i < l.Count; i++)
             {
-                int h2 = int.MaxValue;
-                Console.Write("\nUsing unchecked : " + (h2+2));
+                string s = l[i];
+                Console.WriteLine(s);
             }
             Console.ReadLine();
-        }      
+
+     
+            // 2. hashset<>
+            Console.Write("\n---2. HashSet---\n");
+            HashSet<float> Hash = new HashSet<float> { 4.5f, 9f, 7894.4f, 9f };
+
+            foreach(float val in Hash)
+            {
+                Console.WriteLine(val);
+            }
+            Console.ReadLine();
+
+
+            // 3. sortedset<>
+            Console.Write("\n---3. SortedSet---\n");
+            SortedSet<int> sorted = new SortedSet<int> { 85, 843, 256, 9, 27, 08, 345, 85, 9 };
+            
+            foreach(int val in sorted)
+            {
+                Console.WriteLine(val);
+            }
+            Console.ReadLine();
+
+
+            // 4. stack<>
+            Console.Write("\n---4. Stack---\n");
+            Stack<int> stacked = new Stack<int>();
+            stacked.Push(5);
+            stacked.Push(43);
+            stacked.Push(3);
+            stacked.Push(9023);
+            stacked.Push(12);
+            stacked.Push(3);
+
+            Console.Write("Values in stack : ");
+            foreach(int val in stacked)
+            {
+                Console.Write(val + " ");
+            }
+
+            Console.Write("\n\nLast element in stack : " + stacked.Peek());
+            Console.Write("\nElement poped from stack : " + stacked.Pop() + "\n");
+            Console.ReadLine();
+
+
+            // 5. queue<>
+            Console.Write("\n---5. Queue---\n");
+            Queue<string> q = new Queue<string>();
+            q.Enqueue("Kakashi Hatake");
+            q.Enqueue("Minato Namikaze");
+            q.Enqueue("Naruto Uzumaki");
+            q.Enqueue("Chandler Bing");
+            q.Enqueue("Phoebe Buffay");
+
+            foreach(string val in q)
+            {
+                Console.WriteLine(val);
+            }
+            Console.Write("\nFirst element in queue : " + q.Peek());
+            Console.Write("\nElement poped from queue : " + q.Dequeue() + "\n");
+            Console.ReadLine();
+
+
+            // 6. linkedlist<>
+            Console.Write("\n---6. LinkedList---\n");
+            LinkedList<string> llist = new LinkedList<string>();
+            llist.AddLast("Kakashi Hatake");
+            llist.AddLast("Minato Namikaze");
+            llist.AddFirst("Chandler Bing");
+            llist.AddLast("Kakashi Hatake");
+
+            LinkedListNode<string> node = llist.Find("Kakashi Hatake");
+            llist.AddBefore(node, "Phoebe Buffay");
+            llist.AddAfter(node, "Naruto Uzumaki");
+            //llist.RemoveLast();
+
+            foreach (string val in llist)
+            {
+                Console.WriteLine(val);
+            }          
+            Console.ReadLine();
+
+
+            // 7. dictionary<>
+            Console.Write("\n---7. Dictionary---\n");
+            Dictionary<int, string> dict = new Dictionary<int, string> { { 3, "Peter" }, { 1, "Emma" }, { 2, "Ross" }, { 4, "Misari" } };
+            dict.Add(5, "Emma");
+            dict.Remove(3);           
+            
+            foreach(KeyValuePair<int, string> val in dict)
+            {
+                //Console.WriteLine(val);
+                Console.WriteLine(val.Key + " " + val.Value);
+            }
+            Console.ReadLine();
+
+
+            // 8. sorteddictionary<>
+            Console.Write("\n---8. SortedDictionary---\n");
+            SortedDictionary<int, string> sdict = new SortedDictionary<int, string> { { 2, "Ross" }, { 3, "Peter" }, { 1, "Emma" },  { 5, "Emma" }, { 4, "Misari" } };
+            sdict.Remove(5);
+            
+            foreach(KeyValuePair<int, string> val in sdict)
+            {
+                Console.WriteLine(val.Key + " " + val.Value);
+            }
+            Console.ReadLine();
+
+
+            // 9. sortedlist<>
+            Console.Write("\n---9. SortedList---\n");
+            SortedList<int, string> sl = new SortedList<int, string> { { 2, "Ram" }, { 1, "Krishna" }, { 4, "Sita" }, { 3, "Laxmi" } };
+
+            foreach(KeyValuePair<int, string> val in sl)
+            {
+                Console.WriteLine(val.Key + " " + val.Value);
+            }
+            Console.ReadLine();
+        }
     }
 }
 
 // encapsulation
 namespace program
 {
-    class students
+    class Students
     {
         public string ID { get; set;}
         public string Name { get; set;}
