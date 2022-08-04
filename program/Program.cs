@@ -853,14 +853,14 @@ namespace program
             //l.Add("Phoebe Buffay");
             //l.Remove("Minato Namikaze");
 
-            for (int i= 0; i < l.Count; i++)
+            for (int i = 0; i < l.Count; i++)
             {
                 string s = l[i];
                 Console.WriteLine(s);
             }
             Console.ReadLine();
+          
 
-     
             // 2. hashset<>
             Console.Write("\n---2. HashSet---\n");
             HashSet<float> Hash = new HashSet<float> { 4.5f, 9f, 7894.4f, 9f };
