@@ -352,6 +352,14 @@ namespace program
             }
         }
 
+        // encapsulation
+        class Students
+        {
+            public string ID { get; set; }
+            public string Name { get; set; }
+            public string Standard { get; set; }
+        }
+
 
         // user defined exception
         public class MyException : Exception
@@ -363,10 +371,10 @@ namespace program
         }
         static void Okay(int i)
         {
-            if (i <100)
+            if (i < 100)
             {
                 throw new MyException("Number is less than 100");
-            }
+            } 
         }
 
 
@@ -637,7 +645,7 @@ namespace program
             ////s1.Insert("Rishit", 21);
             ////s2.Insert("Misari", 20);
             //s1.Print();
-            //s2.Print();            
+            //s2.Print();
             //Console.Write("\nTotal Objects are : " + Student.count);
             //Console.ReadLine();
 
@@ -785,10 +793,11 @@ namespace program
             //    Console.Write("Enter any positive number to check whether it gives exception or not :");
             //    int any = Convert.ToInt32(Console.ReadLine());
             //    Okay(any);
-            //} catch (MyException e)
+            //}
+            //catch (MyException e)
             //{
             //    Console.Write(e);
-            //}
+            //} 
             //Console.Write("\nContinue.........");
             //Console.ReadLine();
 
@@ -839,6 +848,7 @@ namespace program
             //l.Add("Naruto Uzumaki");
             //l.Add("Chandler Bing");
             //l.Add("Phoebe Buffay");
+            //l.Remove("Minato Namikaze");
 
             for (int i= 0; i < l.Count; i++)
             {
@@ -883,7 +893,7 @@ namespace program
             Console.Write("Values in stack : ");
             foreach(int val in stacked)
             {
-                Console.Write(val + " ");
+                Console.WriteLine(val + " ");
             }
 
             Console.Write("\n\nLast element in stack : " + stacked.Peek());
@@ -921,7 +931,7 @@ namespace program
             llist.AddBefore(node, "Phoebe Buffay");
             llist.AddAfter(node, "Naruto Uzumaki");
             //llist.RemoveLast();
-
+            
             foreach (string val in llist)
             {
                 Console.WriteLine(val);
@@ -933,7 +943,7 @@ namespace program
             Console.Write("\n---7. Dictionary---\n");
             Dictionary<int, string> dict = new Dictionary<int, string> { { 3, "Peter" }, { 1, "Emma" }, { 2, "Ross" }, { 4, "Misari" } };
             dict.Add(5, "Emma");
-            dict.Remove(3);           
+            dict.Remove(2);           
             
             foreach(KeyValuePair<int, string> val in dict)
             {
@@ -965,16 +975,5 @@ namespace program
             }
             Console.ReadLine();
         }
-    }
-}
-
-// encapsulation
-namespace program
-{
-    class Students
-    {
-        public string ID { get; set;}
-        public string Name { get; set;}
-        public string Standard { get; set;}
     }
 }
