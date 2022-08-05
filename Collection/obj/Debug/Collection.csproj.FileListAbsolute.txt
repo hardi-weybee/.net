@@ -1,0 +1,6 @@
+D:\.net\.net\Collection\bin\Debug\Collection.exe.config
+D:\.net\.net\Collection\bin\Debug\Collection.exe
+D:\.net\.net\Collection\bin\Debug\Collection.pdb
+D:\.net\.net\Collection\obj\Debug\Collection.csproj.CoreCompileInputs.cache
+D:\.net\.net\Collection\obj\Debug\Collection.exe
+D:\.net\.net\Collection\obj\Debug\Collection.pdb
