@@ -153,7 +153,7 @@ namespace LINQ
                 new Students() { ID = 2, Name = "Naruto", Gender = "Male", Address = new List<string> { "2429", "Doctors Drive", "Torrance" } },
                 new Students() { ID = 3, Name = "Hinata", Gender = "Female", Address = new List<string> { "85", " Locust Street", "Valdosta" } },
                 new Students() { ID = 4, Name = "Sakura", Gender = "Female", Address = new List<string> { "245", "Bruce Street", "Saint Louis" } },
-                new Students() { ID = 5, Name = "Itachi", Gender = "Male", Address = new List<string> { "789", "Cameron Road", "Buffalo" } },
+                new Students() { ID = 5, Name = "Itachi", Gender = "Male", Address = new List<string> { "789", "Cameron Road", "Buffalo" } }
             };
 
             var StudentOrderBY = info.OrderBy(x => x.Name);
@@ -420,6 +420,39 @@ namespace LINQ
 
             // 7. single()
             Console.Write("\n---7. Single()---\n");
+
+            var AnyStudent = info.Single(x => x.Name == "Hinata");
+            string seven = AnyStudent.Name;
+
+            Console.Write($"Element : {seven}");
+            Console.ReadLine();
+
+
+            // 8. SingleOrDefault()
+            Console.Write("\n---8. SingleOrDefault()---\n");
+
+            var AnyStudent1 = info.SingleOrDefault(x => x.Name == "Itachi");
+            string eight = AnyStudent1.Name;
+
+            //int[] objList = { 1, 2, 3, 4, 5 };
+            //int val = objList.SingleOrDefault(x => x > 5);
+            //Console.Write($"Element : {val}");
+
+            Console.Write($"Element : {eight}");          
+            Console.ReadLine();
+
+
+            // 9. DefaultfEmpty()
+            Console.Write("\n---9. DefaultfEmpty()---\n");           
+
+            int[] objList = { 1, 2, 3, 4, 5 };
+            var val = objList.DefaultIfEmpty();
+
+            foreach(var x in val)
+            {
+                Console.WriteLine($"Elements are : {x}");               
+            }
+            Console.ReadLine();
         }
     }
 
