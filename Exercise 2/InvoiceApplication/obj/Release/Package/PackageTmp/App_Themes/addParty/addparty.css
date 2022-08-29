@@ -1,0 +1,65 @@
+﻿.addParty {
+    margin: auto;
+    width: 70%;
+    padding: 20px 0px;
+}
+
+.addPartyHeading {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.addPartyBody {
+    justify-content:center;
+    margin:30px auto 0px auto;
+}
+
+.name {   
+    padding:0px 40px;
+    font-size:larger;
+}
+
+.tb {
+    height:25px;
+    width:250px;
+}
+
+.vali {
+    display: block;
+    color: red;
+    font-size: small;
+}
+
+.addPartyBtn {
+    width:27%;
+    display:flex;
+    justify-content:space-evenly;
+    margin:40px auto;
+}
+
+.savePartyBtn {
+    background-color: #5cb85c;
+    width: 60px;
+    height: 27px;
+    border: none;
+    border-radius: 5px;
+    border-color: #5cb85c;
+    cursor: pointer;
+    font-size: medium;
+}
+
+.cancelPartyBtn {
+    width: 60px;
+    height: 27px;
+    border-radius: 5px;
+    cursor: pointer;
+    border:none;
+    font-size:medium;
+    background-color:white;
+}
+
+.success {
+    display: flex;
+    justify-content: center;
+    font-size: smaller;
+}

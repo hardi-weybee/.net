@@ -1,0 +1,61 @@
+﻿.addAssign {
+    margin: auto;
+    width: 70%;
+    padding: 20px 0px;
+}
+
+.addAssignHeading {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.addAssignBody {
+    justify-content: center;
+    margin: 30px auto 15px auto;
+    height:90px;
+    text-align:end;
+}
+
+.name {
+    padding: 0px 40px;
+    font-size: larger;
+}
+
+.ddl {
+    height: 30px;
+    width:250px;
+}
+
+.addAssignBtn {
+    width: 27%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 40px auto;
+}
+
+.saveAssignBtn {
+    background-color: #5cb85c;
+    width: 60px;
+    height: 27px;
+    border: none;
+    border-radius: 5px;
+    border-color: #5cb85c;
+    cursor: pointer;
+    font-size: medium;
+}
+
+.cancelAssignBtn {
+    width: 60px;
+    height: 27px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: medium;
+    background-color:white;
+}
+
+.success {
+    display: flex;
+    justify-content: center;
+    font-size: smaller;
+}

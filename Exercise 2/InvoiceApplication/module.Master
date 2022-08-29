@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="module.master.cs" Inherits="InvoiceApplication.module" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link href="App_Themes/ThemeModule/masterPage.css" rel="stylesheet" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">        
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="heading">
+
+            <div class="mainHeading">
+                <asp:HyperLink CssClass="list" ID="HyperLink1" runat="server" NavigateUrl="~/party.aspx">Invoice Module</asp:HyperLink>
+            </div>
+            <div class="listHeading">
+                <asp:HyperLink CssClass="list" ID="HyperLink2" runat="server" NavigateUrl="~/party.aspx">Party</asp:HyperLink>
+                <asp:HyperLink CssClass="list" ID="HyperLink3" runat="server" NavigateUrl="~/products.aspx">Products</asp:HyperLink>
+                <asp:HyperLink CssClass="list" ID="HyperLink4" runat="server" NavigateUrl="~/assignParty.aspx">Assign Party</asp:HyperLink>
+                <asp:HyperLink CssClass="list" ID="HyperLink5" runat="server" NavigateUrl="~/productRate.aspx">Product Rate</asp:HyperLink>
+                <asp:HyperLink CssClass="list" ID="HyperLink6" runat="server" NavigateUrl="~/invoice.aspx">Invoice</asp:HyperLink>
+            </div>
+        </div>
+        
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿body {
+    width: 95%;
+    margin:20px auto;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
+}
+
+.heading {
+    background-color: #0b325a;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.list {
+    padding: 0px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: large;
+}
+
+:hover.list {
+    color: #2d69a7;
+}
+

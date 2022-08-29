@@ -1,0 +1,91 @@
+﻿.invoice {
+    margin: auto;
+    width: 70%;
+    padding: 20px 0px;
+}
+
+.invoiceHeading {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.t1 {
+    margin: 30px auto;  
+    justify-content:center;
+    font-size:larger;
+    height:165px;
+    width:fit-content;
+}
+
+.rows {
+    text-align:end;
+    width:50%;
+    justify-content:center;
+    padding-right:40px;
+}
+
+.ddl {
+    width:250px;
+    height:30px;
+}
+
+.tb {
+    height:25px;
+    width:242px;
+}
+
+.vali {
+    display: block;
+    color: red;
+    font-size:small;
+}
+
+.addBtn {
+    text-align:center;
+    margin: 30px auto;
+}
+
+.addInvoice {
+    background-color: #5cb85c;
+    color: black;
+    width: 110px;
+    height: 35px;
+    border-radius: 5px;
+    border: solid 1px;
+    border-color: #48a348;
+    cursor:pointer;
+}
+
+:hover.addInvoice {
+    background-color: #2a972a;
+}
+
+.total1 {
+    margin: 10px auto;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+h2 {
+    margin-right:15px;
+}
+
+.closeInvoice {
+    background-color: #d9534f;
+    color: black;
+    height: 35px;
+    border-radius: 5px;
+    border: solid 1px;
+    border-color: #eb5954;
+    cursor: pointer;
+}
+
+:hover.closeInvoice {
+    background-color: #e10700;
+}
+
+.tab {
+    width:100%;
+    text-align:left;
+}
