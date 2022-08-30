@@ -29,7 +29,7 @@
             <tr>
                 <td class="name">Date Of Rate : </td>
                 <td>                   
-                    <asp:TextBox class="tb1" ID="dttb" runat="server" Visible="false" ></asp:TextBox>          <asp:Button class="tb2" ID="Button1" runat="server" Text="Select Date" OnClick="Button1_Click" />
+                    <asp:TextBox class="tb1" ID="dttb" runat="server" ></asp:TextBox>          <asp:Button class="tb2" ID="Button1" runat="server" Text="Select Date" OnClick="Button1_Click" />
                     <br /><br />
                     
                     <asp:Calendar CssClass="tb" ID="dt" runat="server" Visible="False" OnSelectionChanged="dt_SelectionChanged" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">

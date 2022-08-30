@@ -11,26 +11,33 @@
         </div>
 
         <div class="btnProduct">
-            <asp:Button CssClass="btn1" ID="addNewProduct" runat="server" Text="Add New Product" PostBackUrl="~/addProduct.aspx"  />
+            <asp:Label CssClass="err" ID="error" runat="server" ></asp:Label>
+            <asp:ImageButton CssClass="btn1" ID="addNewProduct" runat="server" PostBackUrl="~/addProduct.aspx" ToolTip="Add New Product" ImageUrl="~/images/icons8-add-100.png" />
+
+            <%--<asp:Button CssClass="btn1" ID="addNewProduct" runat="server" Text="Add New Product" PostBackUrl="~/addProduct.aspx"  />--%>
         </div>
 
         <br />
 
         <formview>
             <div class="table">
-                <asp:GridView CssClass="gr1" ID="GridView1" runat="server" AutoGenerateColumns="False" EmptyDataText="There are no data records to display." CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="GridView1_RowCommand">
+                <asp:GridView CssClass="gr1" ID="GridView1" runat="server" AutoGenerateColumns="False" EmptyDataText="There are no data records to display." CellPadding="4" ForeColor="#333333" GridLines="None" >
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" />
                         <asp:BoundField DataField="ProductName" HeaderText="Product Name" SortExpression="Product_Name" />
-                        <asp:ButtonField ButtonType="Button" CommandName="Edit" HeaderText="Action" ShowHeader="True" Text="Edit" ControlStyle-CssClass="edit" />
-                        <asp:ButtonField ButtonType="Button" CommandName="Del" Text="Delete" ControlStyle-CssClass="del" />
+                        <asp:TemplateField HeaderText="Actions">
+                            <ItemTemplate>
+                                <asp:ImageButton CssClass="head" ID="ImageButton1" runat="server" ImageUrl="~/images/icons8-edit.svg" OnClick="ImageButton1_Click" />
+                                <asp:ImageButton CssClass="del" ID="ImageButton2" runat="server" ImageUrl="~/images/icons8-trash.svg" OnClick="ImageButton2_Click" />
+                            </ItemTemplate>
+                        </asp:TemplateField>                        
                     </Columns>
                     <EditRowStyle BackColor="#2461BF" />
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#AACFDE" Font-Bold="True" ForeColor="black" Height="35px" />
+                    <HeaderStyle BackColor="#9fa8da" Font-Bold="True" ForeColor="black" Height="45px" Font-Size="20px" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#EFF3FB" Height="35px" />
+                    <RowStyle BackColor="#EFF3FB" Height="45px" Font-Size="18px" />
                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                     <SortedAscendingCellStyle BackColor="#F5F7FB" />
                     <SortedAscendingHeaderStyle BackColor="#6D95E1" />

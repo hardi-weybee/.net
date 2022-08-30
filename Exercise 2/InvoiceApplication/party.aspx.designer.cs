@@ -24,13 +24,22 @@ namespace InvoiceApplication
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
+        /// error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label error;
+
+        /// <summary>
         /// addNewParty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addNewParty;
+        protected global::System.Web.UI.WebControls.ImageButton addNewParty;
 
         /// <summary>
         /// GridView1 control.

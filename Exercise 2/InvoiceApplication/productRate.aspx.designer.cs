@@ -30,7 +30,7 @@ namespace InvoiceApplication
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addNewPR;
+        protected global::System.Web.UI.WebControls.ImageButton addNewPR;
 
         /// <summary>
         /// GridView1 control.

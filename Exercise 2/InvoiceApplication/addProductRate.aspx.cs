@@ -15,7 +15,8 @@ namespace InvoiceApplication
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {             
+            {
+                dttb.Text = DateTime.Today.ToString("yyyy-MM-dd");
                 SqlConnection con = null;
                 try
                 {
@@ -25,7 +26,6 @@ namespace InvoiceApplication
                     DataTable dt = new DataTable();
                     sda.Fill(dt);
                     ddl1.DataSource = dt;
-                    //ddl1.DataBind();
                     ddl1.DataTextField = "ProductName";
                     ddl1.DataValueField = "ID";
                     ddl1.DataBind();
@@ -38,16 +38,32 @@ namespace InvoiceApplication
                 finally
                 {
                     con.Close();
-                }
-
-                
-
+                }                
 
                 if (Request.QueryString["id"] != null)
                 {
-                    Label1.Text = "Update Product Rate";
-                    ddl1.SelectedItem.Text = Request.QueryString["name1"];
-                    ddl1.DataValueField = Request.QueryString["id"];
+                    try
+                    {
+                        Label1.Text = "Update Product Rate";
+                        string com2 = "select productID,Rate,DateOfRate from productRateData where ID=" + Request.QueryString["id"] + "";
+                        SqlCommand scm = new SqlCommand(com2, con);
+                        con.Open();
+                        SqlDataReader sdr = scm.ExecuteReader();
+                        sdr.Read();
+                        ddl1.SelectedItem.Value = sdr["productID"].ToString();
+                        ddl1.SelectedItem.Text = Request.QueryString["name1"];
+                        productRate.Text = sdr["Rate"].ToString();
+                        dttb.Text = sdr["DateOfRate"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write(ex.Message);
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
+                 
                     update.Visible = true;
                     save.Visible = false;
                     dttb.Visible = true;
@@ -74,17 +90,11 @@ namespace InvoiceApplication
             }
         }
 
-
-
         protected void save_Click(object sender, EventArgs e)
         {
             SqlConnection con = null;
             try
             {
-                //CultureInfo provider = CultureInfo.InvariantCulture;
-                /*DateTime.ParseExact(dateString, "mm/dd/yyyy", provider)*/;
-
-
                 con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
                 SqlCommand sc = new SqlCommand("insert into productRateData(productID, Rate, DateOfRate)values('" + Convert.ToInt32(ddl1.SelectedValue) + "','" + productRate.Text + "','" + dttb.Text.ToString() + "')", con);
                 con.Open();

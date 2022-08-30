@@ -21,7 +21,7 @@
         </table>
 
         <div class="success">
-            <asp:Label CssClass="msg" ID="text" runat="server" ></asp:Label>
+            <asp:Label ID="text" runat="server" ></asp:Label>
         </div>
 
         <div class="addPartyBtn">

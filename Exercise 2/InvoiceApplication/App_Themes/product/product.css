@@ -6,61 +6,53 @@
 
 .productHeading {
     text-align: center;
-    font-size: xx-large;
+    font-size: 50px;
 }
 
 .btnProduct {
-    text-align:end;
+    display:flex;
+    justify-content:space-between;
+}
+
+.err {
+    font-size:larger;
+    margin-top:20px;
 }
 
 .btn1 {
-    background-color: #f0ad4e;
-    color: black;
-    width: max-content;
-    height: 40px;
-    border-radius: 5px;
+    height: 50px;
     cursor: pointer;
-    border: solid 1px;
-    border-color: #bd7614;
-}
-
-:hover.btn1 {
-    background-color: #c98b34;
 }
 
 .table {
-    display: flex;
-    height: max-content;
-    justify-content: center;
-    text-align:left;
+    width: 100%;
+    text-align: left;
 }
 
 .gr1 {
-    width: 800px;
+    width: 100%;
 }
 
-.edit {
-    background-color: #94d594;
-    border: 0px solid;
-    border-radius: 5px;
-    height: 25px;
-    width: 45px;
+/*.edit {
+    height: 22px;
     cursor: pointer;
-}
-
-:hover.edit {
-    background-color: #56c756;
-}
+}*/
 
 .del {
-    background-color: #d75e5e;
-    border: 0px solid;
-    border-radius: 5px;
-    height: 25px;
-    width: 55px;
+    margin-left: 25px;
+    height: 32px;
     cursor: pointer;
 }
 
-:hover.del {
-    background-color: #ff4500;
+td {
+    padding: 0 10px;
+}
+
+th {
+    padding: 0 10px;
+}
+
+.head {
+    height: 26px;
+    cursor: pointer;
 }

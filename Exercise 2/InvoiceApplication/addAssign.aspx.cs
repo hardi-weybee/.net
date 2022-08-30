@@ -52,12 +52,44 @@ namespace InvoiceApplication
                 }
                 if (Request.QueryString["id"] != null)
                 {
-                    Label1.Text = "Update Party Assign";
-                    //partyName.Text = Request.QueryString["name"];
-                    ddl1.SelectedItem.Text = Request.QueryString["name1"];
-                    ddl1.DataValueField = Request.QueryString["id"];
-                    ddl2.SelectedItem.Text = Request.QueryString["name2"];
-                    ddl2.DataValueField = Request.QueryString["id"];
+                    try
+                    {
+                        Label1.Text = "Update Assign";
+                        string com2 = "select productID from assignPartyData where ID=" + Request.QueryString["id"] + "";
+                        SqlCommand scm = new SqlCommand(com2, con);
+                        con.Open();
+                        SqlDataReader sdr = scm.ExecuteReader();
+                        sdr.Read();
+                        ddl2.SelectedItem.Value = sdr["productID"].ToString();
+                        ddl2.SelectedItem.Text = Request.QueryString["name2"];
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write(ex.Message);
+
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
+                    try
+                    {
+                        string com3 = "select partyID from assignPartyData where ID=" + Request.QueryString["id"] + "";
+                        SqlCommand scm1 = new SqlCommand(com3, con);
+                        con.Open();
+                        SqlDataReader sdr1 = scm1.ExecuteReader();
+                        sdr1.Read();
+                        ddl1.SelectedItem.Value = sdr1["partyID"].ToString();
+                        ddl1.SelectedItem.Text = Request.QueryString["name1"];
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write(ex.Message);
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
                     update.Visible = true;
                     save.Visible = false;
                 }

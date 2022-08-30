@@ -140,7 +140,7 @@ namespace InvoiceApplication
             {
                 con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
 
-                SqlCommand cm = new SqlCommand("select sum(Total) as res from invoice where partyID ="+ddl1.SelectedItem.Value+" ", con);
+                SqlCommand cm = new SqlCommand("select sum(Total) as res from invoice where partyID ='"+ddl1.SelectedItem.Value+ "' and productID='"+ddl2.SelectedItem.Value+"' ", con);
                 con.Open();
                 SqlDataReader sd = cm.ExecuteReader();
                 sd.Read();

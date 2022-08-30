@@ -6,7 +6,11 @@
 
 .invoiceHeading {
     text-align: center;
-    font-size: xx-large;
+    font-size: 50px;
+}
+
+tr {
+    height:50px;
 }
 
 .t1 {
@@ -32,6 +36,7 @@
 .tb {
     height:25px;
     width:242px;
+    background-color:white;
 }
 
 .vali {
@@ -46,18 +51,19 @@
 }
 
 .addInvoice {
-    background-color: #5cb85c;
-    color: black;
-    width: 110px;
     height: 35px;
-    border-radius: 5px;
-    border: solid 1px;
-    border-color: #48a348;
-    cursor:pointer;
+    background-color: #76bcf3;
+    border-radius: 100px;
+    color: #0008ff;
+    cursor: pointer;
+    padding: 7px 20px;
+    border: 0;
+    font-size: 15px;
 }
 
 :hover.addInvoice {
-    background-color: #2a972a;
+    box-shadow: rgb(79 173 253 / 20%) 0 -25px 18px -14px inset, rgb(5 59 161 / 15%) 0 1px 2px, rgb(52 144 223 / 15%) 0 2px 4px, rgb(27 119 233 / 15%) 0 4px 8px, rgb(46 155 231 / 15%) 0 8px 16px, rgb(27 101 193 / 15%) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
 }
 
 .total1 {
@@ -65,6 +71,7 @@
     display: flex;
     justify-content: end;
     align-items: center;
+    font-size:25px;
 }
 
 h2 {
@@ -72,17 +79,19 @@ h2 {
 }
 
 .closeInvoice {
-    background-color: #d9534f;
-    color: black;
+    padding: 7px 20px;
     height: 35px;
-    border-radius: 5px;
-    border: solid 1px;
-    border-color: #eb5954;
+    border-radius: 100px;
     cursor: pointer;
+    border: 0;
+    font-size: 15px;
+    background-color: #9FA8DA;
+    color: purple;
 }
 
 :hover.closeInvoice {
-    background-color: #e10700;
+    box-shadow: rgb(174 121 243 / 20%) 0 -25px 18px -14px inset, rgb(157 38 219 / 15%) 0 1px 2px, rgb(202 124 243 / 15%) 0 2px 4px, rgb(179 115 237 / 15%) 0 4px 8px, rgb(197 128 233 / 15%) 0 8px 16px, rgb(178 81 239 / 15%) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
 }
 
 .tab {

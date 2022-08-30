@@ -31,16 +31,19 @@ namespace InvoiceApplication
             try
             {
                 con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
-                SqlCommand cm = new SqlCommand("select ProductName from productData", con);
+                SqlCommand cm = new SqlCommand("select ProductName from productData where ProductName= '"+ productName.Text + "'", con);
                 con.Open();
                 SqlDataReader sd = cm.ExecuteReader();
                 sd.Read();
-                if (sd["ProductName"].Equals(productName.Text))
+                if(sd["ProductName"].ToString() != null)
                 {
-                    //Response.Write("*Product Name already exists");
-                    text.Text = "*Product Name already exists";
+                    text.Text = "Product Name already exists... Please add other product";
                    
-                } else
+                }             
+            }
+            catch (Exception ex)
+            {
+                try
                 {
                     con.Close();
                     con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
@@ -49,14 +52,16 @@ namespace InvoiceApplication
                     sc.ExecuteNonQuery();
 
                     text.Text = "Product Added Successfully.....";
-                }                
-            }
-            catch (Exception ex)
-            {
-                Response.Write(ex.Message);
+                } catch(Exception em)
+                {
+                    Response.Write(em.Message);
+                } finally
+                {
+                    con.Close();
+                }
             }
             finally
-            {
+            {   
                 con.Close();
             }
         }
@@ -67,17 +72,33 @@ namespace InvoiceApplication
             try
             {
                 con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
-                SqlCommand sc = new SqlCommand("update productData set ProductName='" + productName.Text + "'where ID='" + Request.QueryString["id"] + "'", con);
+                SqlCommand cm = new SqlCommand("select ProductName from productData where ProductName= '" + productName.Text + "'", con);
                 con.Open();
-
-                sc.ExecuteNonQuery();
-
-                text.Text = "Product Updated Successfully.....";
-
+                SqlDataReader sd = cm.ExecuteReader();
+                sd.Read();
+                if (sd["ProductName"].ToString() != null)
+                {
+                    text.Text = "Product Name already There... Cannot update";
+                }               
             }
             catch (Exception ex)
             {
-                Response.Write(ex.Message);
+                try
+                {
+                    con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
+                    SqlCommand sc = new SqlCommand("update productData set ProductName='" + productName.Text + "'where ID='" + Request.QueryString["id"] + "'", con);
+                    con.Open();
+
+                    sc.ExecuteNonQuery();
+
+                    text.Text = "Product Updated Successfully.....";
+                } catch(Exception em)
+                {
+                    Response.Write(em.Message);
+                } finally
+                {
+                    con.Close();
+                }               
             }
             finally
             {

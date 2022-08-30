@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows;
+using System.Windows.Forms;
 
 namespace InvoiceApplication
 {
@@ -43,36 +45,45 @@ namespace InvoiceApplication
             }
         }
 
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
-            GridViewRow gr = GridView1.Rows[Convert.ToInt32(e.CommandArgument)];
-            int id = Convert.ToInt32(gr.Cells[0].Text);
-            string name = gr.Cells[1].Text;
+            int rowIndex = ((GridViewRow)(sender as System.Web.UI.Control).NamingContainer).RowIndex;
+            int id = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[0].Text);
+            string name = GridView1.Rows[rowIndex].Cells[1].Text;
+            //string productName = GridView1.Rows[rowIndex].Cells[2].Text;
 
-            if (e.CommandName == "Edit")
+            Response.Redirect("addProduct.aspx?id=" + id + "&name=" + name);
+        }
+
+        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+        {
+            int rowIndex = ((GridViewRow)(sender as System.Web.UI.Control).NamingContainer).RowIndex;
+            int id = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[0].Text);
+
+            SqlConnection con = null;
+            try
             {
-                Response.Redirect("addProduct.aspx?id=" + id + "&name=" + name);
-            }
-            else if (e.CommandName == "Del")
-            {
-                SqlConnection con = null;
-                try
+                con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
+                SqlCommand sc = new SqlCommand("delete from productData where ID=" + id, con);
+                con.Open();
+                if (System.Windows.Forms.MessageBox.Show("Are you sure you want to delete this Product", "myconfirm", (MessageBoxButtons)MessageBoxButton.YesNo) == DialogResult.Yes)
                 {
-                    con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
-                    SqlCommand sc = new SqlCommand("delete from productData where ID=" + id, con);
-                    con.Open();
-
                     sc.ExecuteNonQuery();
                     addData();
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine(ex.Message);
+                    Response.Redirect("products.aspx");
                 }
-                finally
-                {
-                    con.Close();
-                }
+            }
+            catch (Exception ex)
+            {
+                //Response.Write(ex.Message);
+                error.Text = "You Cannot delete the selected product as it is assigned to the Party...";
+            }
+            finally
+            {
+                con.Close();
             }
         }
     }

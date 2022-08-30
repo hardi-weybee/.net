@@ -31,7 +31,7 @@
             <tr>
                 <td class="rows">Current Rate :</td>
                 <td>
-                    <asp:TextBox CssClass="tb" ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="tb" ID="TextBox3" runat="server" Enabled="False"></asp:TextBox>
                     </td>
             </tr>
             <tr>
@@ -75,7 +75,7 @@
         <br /><br />
 
         <div class="total1">
-            <h2 ID="grd" runat="server">Grand Total: </h2>   <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+            <h2 ID="grd" runat="server">Grand Total: </h2>   <asp:Label ID="Label2" runat="server" ></asp:Label>
         </div>
 
         <div class="total1">
