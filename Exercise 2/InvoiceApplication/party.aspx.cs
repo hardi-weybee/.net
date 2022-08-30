@@ -49,7 +49,6 @@ namespace InvoiceApplication
             int rowIndex = ((GridViewRow)(sender as System.Web.UI.Control).NamingContainer).RowIndex;
             int id = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[0].Text);
             string name = GridView1.Rows[rowIndex].Cells[1].Text;
-            //string productName = GridView1.Rows[rowIndex].Cells[2].Text;
 
             Response.Redirect("addParty.aspx?id=" + id + "&name=" + name);
         }

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
+using System.Windows;
 
 namespace InvoiceApplication
 {
@@ -37,8 +39,7 @@ namespace InvoiceApplication
                 sd.Read();
                 if(sd["ProductName"].ToString() != null)
                 {
-                    text.Text = "Product Name already exists... Please add other product";
-                   
+                    text.Text = "Product Name already exists... Please add other product";                   
                 }             
             }
             catch (Exception ex)
@@ -88,7 +89,6 @@ namespace InvoiceApplication
                     con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
                     SqlCommand sc = new SqlCommand("update productData set ProductName='" + productName.Text + "'where ID='" + Request.QueryString["id"] + "'", con);
                     con.Open();
-
                     sc.ExecuteNonQuery();
 
                     text.Text = "Product Updated Successfully.....";
@@ -108,7 +108,10 @@ namespace InvoiceApplication
 
         protected void cancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("products.aspx");
+            if (System.Windows.Forms.MessageBox.Show("Are you sure you want to cancel the operation", "Conformation Page", (MessageBoxButtons)MessageBoxButton.YesNo) == DialogResult.Yes)
+            {
+                Response.Redirect("products.aspx");
+            }          
         }
     }
 }

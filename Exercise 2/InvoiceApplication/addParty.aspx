@@ -28,8 +28,6 @@
             <asp:Button CssClass="savePartyBtn" ID="save" runat="server" Text="Save" OnClick="save_Click" />
             <asp:Button CssClass="savePartyBtn" ID="update" runat="server" Text="Update" OnClick="update_Click" visible=false/>
             <asp:Button CssClass="cancelPartyBtn" ID="cancel" runat="server" Text="Cancel" OnClick="cancel_Click" CausesValidation="false"/>
-        </div>
-
-        
+        </div>     
     </div>
 </asp:Content>

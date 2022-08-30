@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
+using System.Windows;
 
 namespace InvoiceApplication
 {
@@ -55,18 +57,16 @@ namespace InvoiceApplication
                     try
                     {
                         Label1.Text = "Update Assign";
-                        string com2 = "select productID from assignPartyData where ID=" + Request.QueryString["id"] + "";
-                        SqlCommand scm = new SqlCommand(com2, con);
+                        SqlCommand scm = new SqlCommand("select partyID from assignPartyData where ID=" + Request.QueryString["id"] + "", con);
                         con.Open();
                         SqlDataReader sdr = scm.ExecuteReader();
                         sdr.Read();
-                        ddl2.SelectedItem.Value = sdr["productID"].ToString();
-                        ddl2.SelectedItem.Text = Request.QueryString["name2"];
+                        ddl1.SelectedItem.Value = sdr["partyID"].ToString();
+                        ddl1.SelectedItem.Text = Request.QueryString["name1"];
                     }
                     catch (Exception ex)
                     {
                         Response.Write(ex.Message);
-
                     }
                     finally
                     {
@@ -74,13 +74,12 @@ namespace InvoiceApplication
                     }
                     try
                     {
-                        string com3 = "select partyID from assignPartyData where ID=" + Request.QueryString["id"] + "";
-                        SqlCommand scm1 = new SqlCommand(com3, con);
+                        SqlCommand scm1 = new SqlCommand("select productID from assignPartyData where ID=" + Request.QueryString["id"] + "", con);
                         con.Open();
                         SqlDataReader sdr1 = scm1.ExecuteReader();
                         sdr1.Read();
-                        ddl1.SelectedItem.Value = sdr1["partyID"].ToString();
-                        ddl1.SelectedItem.Text = Request.QueryString["name1"];
+                        ddl2.SelectedItem.Value = sdr1["productID"].ToString();
+                        ddl2.SelectedItem.Text = Request.QueryString["name2"];                       
                     }
                     catch (Exception ex)
                     {
@@ -102,14 +101,11 @@ namespace InvoiceApplication
             try
             {
                 con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
-                SqlCommand sc = new SqlCommand("insert into assignPartyData(partyID, productID)values('" + Convert.ToInt32(ddl1.SelectedValue) + "','" + Convert.ToInt32(ddl2.SelectedValue) + "')", con);
-                
-                con.Open();
-                                             
+                SqlCommand sc = new SqlCommand("insert into assignPartyData(partyID, productID)values('" + Convert.ToInt32(ddl1.SelectedValue) + "','" + Convert.ToInt32(ddl2.SelectedValue) + "')", con);               
+                con.Open();                                             
                 sc.ExecuteNonQuery();
 
                 text.Text = "Added Successfully.....";
-
             }
             catch (Exception ex)
             {
@@ -129,11 +125,9 @@ namespace InvoiceApplication
                 con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
                 SqlCommand sc = new SqlCommand("update assignPartyData set partyID='" + Convert.ToInt32(ddl1.SelectedValue) + "', productID='" + Convert.ToInt32(ddl2.SelectedValue) + "'where ID='" + Request.QueryString["id"] + "'", con);
                 con.Open();
-
                 sc.ExecuteNonQuery();
 
                 text.Text = "Updated Successfully.....";
-
             }
             catch (Exception ex)
             {
@@ -147,7 +141,10 @@ namespace InvoiceApplication
 
         protected void cancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("assignParty.aspx");
+            if (System.Windows.Forms.MessageBox.Show("Are you sure you want to cancel the operation", "Conformation Page", (MessageBoxButtons)MessageBoxButton.YesNo) == DialogResult.Yes)
+            {
+                Response.Redirect("assignParty.aspx");
+            }           
         }
     }
 }

@@ -1,15 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/module.Master" AutoEventWireup="true" CodeBehind="party.aspx.cs" Inherits="InvoiceApplication.party" %>
 
-
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="App_Themes/party/party.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-
     <div class="party">
         <div class="partyHeading">
             <asp:Label ID="Label1" runat="server" Text="Party List"></asp:Label>
@@ -17,14 +12,10 @@
 
         <div class="btnParty">
             <asp:Label CssClass="err" ID="error" runat="server" ></asp:Label>
-
             <asp:ImageButton CssClass="btn1" ID="addNewParty" runat="server" PostBackUrl="~/addParty.aspx" ImageUrl="~/images/icons8-add-100.png" ToolTip="Add New Party" />
-
-            <%--<asp:Button CssClass="btn1" ID="addNewParty" runat="server" Text="Add New Party"  PostBackUrl="~/addParty.aspx"  />--%>
         </div>
         
         <br />
-
 
         <formview>
             <div class="table">

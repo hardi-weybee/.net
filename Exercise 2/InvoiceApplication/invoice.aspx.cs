@@ -76,15 +76,12 @@ namespace InvoiceApplication
             try
             {
                 con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
-
                 SqlCommand cm = new SqlCommand("select Rate from productRateData where productID=" + ddl2.SelectedItem.Value + "", con);
                 con.Open();
                 SqlDataReader sd = cm.ExecuteReader();
                 sd.Read();
 
                 TextBox3.Text = sd["Rate"].ToString();
-
-
             }
             catch (Exception ex)
             {

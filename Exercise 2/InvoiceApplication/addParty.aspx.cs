@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
+using System.Windows;
 
 namespace InvoiceApplication
 {
@@ -37,7 +39,6 @@ namespace InvoiceApplication
                 if (sd["PartyName"].ToString() != null)
                 {
                     text.Text = "Party Name already exists... Please add other product";
-
                 }
             } catch(Exception ex)
             {
@@ -46,11 +47,9 @@ namespace InvoiceApplication
                     con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
                     SqlCommand sc = new SqlCommand("insert into partyData(PartyName)values('" + partyName.Text + "')", con);
                     con.Open();
-
                     sc.ExecuteNonQuery();
 
                     text.Text = "Party Added Successfully.....";
-
                 }
                 catch (Exception em)
                 {
@@ -87,11 +86,9 @@ namespace InvoiceApplication
                     con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
                     SqlCommand sc = new SqlCommand("update partyData set PartyName='" + partyName.Text + "'where ID='" + Request.QueryString["id"] + "'", con);
                     con.Open();
-
                     sc.ExecuteNonQuery();
 
                     text.Text = "Party Updated Successfully.....";
-
                 }
                 catch (Exception em)
                 {
@@ -109,8 +106,10 @@ namespace InvoiceApplication
 
         protected void cancel_Click(object sender, EventArgs e)
         {
-            Response.Write(" <script> alert('Are you sure you want to delete !!') </script>");
-            Response.Redirect("party.aspx");
+            if (System.Windows.Forms.MessageBox.Show("Are you sure you want to cancel the operation", "Conformation Page", (MessageBoxButtons)MessageBoxButton.YesNo) == DialogResult.Yes)
+            {
+                Response.Redirect("party.aspx");               
+            }
         }
     }
 }

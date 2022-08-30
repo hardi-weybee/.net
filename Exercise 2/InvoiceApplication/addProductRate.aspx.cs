@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Globalization;
+using System.Windows.Forms;
+using System.Windows;
 
 namespace InvoiceApplication
 {
@@ -71,7 +73,7 @@ namespace InvoiceApplication
                     try
                     {
                         //con = new SqlConnection("data source=DESKTOP-SUG1Q46; database=invoice; integrated security=SSPI");
-                        SqlCommand cm = new SqlCommand("select DateOfRate, Rate from productRateData where ID='" + Request.QueryString["id"] + "'", con);
+                        SqlCommand cm = new SqlCommand("select format(DateOfRate, 'yyyy-MM-dd') as DateOfRate, Rate from productRateData where ID='" + Request.QueryString["id"] + "'", con);
                         con.Open();
                         SqlDataReader sd = cm.ExecuteReader();
                         sd.Read();
@@ -140,7 +142,10 @@ namespace InvoiceApplication
 
         protected void cancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("productRate.aspx");
+            if (System.Windows.Forms.MessageBox.Show("Are you sure you want to cancel the operation", "Conformation Page", (MessageBoxButtons)MessageBoxButton.YesNo) == DialogResult.Yes)
+            {
+                Response.Redirect("productRate.aspx");
+            }          
         }
 
         protected void Button1_Click(object sender, EventArgs e)

@@ -32,13 +32,10 @@
                     <asp:TextBox class="tb1" ID="dttb" runat="server" ></asp:TextBox>          <asp:Button class="tb2" ID="Button1" runat="server" Text="Select Date" OnClick="Button1_Click" />
                     <br /><br />
                     
-                    <asp:Calendar CssClass="tb" ID="dt" runat="server" Visible="False" OnSelectionChanged="dt_SelectionChanged" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
-                        <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                        <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
-                        <OtherMonthDayStyle ForeColor="#999999" />
-                        <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                        <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-                        <TodayDayStyle BackColor="#CCCCCC" />
+                    <asp:Calendar ID="dt" runat="server" Visible="False" OnSelectionChanged="dt_SelectionChanged" Height="16px" Width="300px" CellPadding="0" >                      
+                        <DayStyle ForeColor="#6699FF" />
+                        <TitleStyle BackColor="#99CCFF" Font-Bold="true" />
+                        <TodayDayStyle ForeColor="black" BackColor="#99CCFF" />
                     </asp:Calendar>
                 </td>
             </tr>
@@ -52,8 +49,6 @@
             <asp:Button CssClass="savePRBtn" ID="save" runat="server" Text="Save" OnClick="save_Click" />
             <asp:Button CssClass="savePRBtn" ID="update" runat="server" Text="Update" OnClick="update_Click" visible=false/>
             <asp:Button CssClass="cancelPRBtn" ID="cancel" runat="server" Text="Cancel" OnClick="cancel_Click" CausesValidation="false"/>
-        </div>
-
-        
+        </div>       
     </div>
 </asp:Content>
