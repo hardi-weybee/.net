@@ -1,0 +1,81 @@
+﻿.addPR {
+    margin: auto;
+    width: 70%;
+    padding: 20px 0px;
+}
+
+.addPRHeading {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.addPRBody {
+    justify-content: center;
+    margin: 30px auto 15px auto;
+    height: 150px;
+    text-align:end;
+}
+
+.name {
+    padding: 0px 40px;
+    font-size: larger;
+}
+
+.ddl {
+    height: 30px;
+    width: 280px;
+}
+
+.tb {
+    height: 25px;
+    width: 272px;
+}
+
+.vali {
+    display: block;
+    color: red;
+    font-size: small;
+}
+
+.addPRBtn {
+    width: 27%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 40px auto;
+}
+
+.savePRBtn {
+    background-color: #5cb85c;
+    width: 60px;
+    height: 27px;
+    border: none;
+    border-radius: 5px;
+    border-color: #5cb85c;
+    cursor: pointer;
+    font-size: medium;
+}
+
+.cancelPRBtn {
+    width: 60px;
+    height: 27px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: medium;
+    background-color:white;
+}
+
+.success {
+    display: flex;
+    justify-content: center;
+    font-size: smaller;
+}
+
+.tb1 {
+    width:182px;
+    height:25px;
+}
+
+.tb2 {
+    height: 30px;
+}

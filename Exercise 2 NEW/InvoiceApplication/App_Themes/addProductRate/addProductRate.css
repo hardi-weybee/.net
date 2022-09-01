@@ -1,0 +1,100 @@
+﻿.addPR {
+    margin: auto;
+    width: 70%;
+    padding: 20px 0px;
+}
+
+.addPRHeading {
+    text-align: center;
+    font-size: 50px;
+}
+
+.addPRBody {
+    justify-content: center;
+    margin: 40px auto 0px auto;
+}
+
+.name {
+    padding: 0px 40px;
+    font-size: 26px;
+}
+
+.ddl {
+    height: 30px;
+    width: 280px;
+}
+
+tr {
+    height:50px;
+}
+
+.tb {
+    height: 25px;
+    width: 272px;
+}
+
+.vali {
+    display: block;
+    color: red;
+    font-size: small;
+}
+
+.addPRBtn {
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 40px auto;
+}
+
+.savePRBtn {
+    height: 35px;
+    background-color: #76bcf3;
+    border-radius: 100px;
+    color: #0008ff;
+    cursor: pointer;
+    padding: 7px 20px;
+    border: 0;
+    font-size: 15px;
+}
+
+:hover.savePRBtn {
+    box-shadow: rgb(79 173 253 / 20%) 0 -25px 18px -14px inset, rgb(5 59 161 / 15%) 0 1px 2px, rgb(52 144 223 / 15%) 0 2px 4px, rgb(27 119 233 / 15%) 0 4px 8px, rgb(46 155 231 / 15%) 0 8px 16px, rgb(27 101 193 / 15%) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+.cancelPRBtn {
+    padding: 7px 20px;
+    height: 35px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: 0;
+    font-size: 15px;
+    background-color: #9FA8DA;
+    color: purple;
+}
+
+:hover.cancelPRBtn {
+    box-shadow: rgb(174 121 243 / 20%) 0 -25px 18px -14px inset, rgb(157 38 219 / 15%) 0 1px 2px, rgb(202 124 243 / 15%) 0 2px 4px, rgb(179 115 237 / 15%) 0 4px 8px, rgb(197 128 233 / 15%) 0 8px 16px, rgb(178 81 239 / 15%) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+.success {
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    margin: 30px auto auto auto;
+}
+
+.tb1 {
+    width:182px;
+    height:25px;
+}
+
+.tb2 {
+    height: 33px;
+    border: 1px solid #00a3ff;
+    border-radius: 100px;
+    padding: 0 10px;
+    background-color: white;
+    cursor: pointer;
+}

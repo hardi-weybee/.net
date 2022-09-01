@@ -1,0 +1,52 @@
+﻿.assign {
+    margin: auto;
+    width: 70%;
+    padding: 20px 0px;
+}
+
+.assignHeading {
+    text-align: center;
+    font-size: 50px;
+}
+
+.btnAssign {
+    text-align:end; 
+}
+
+.btn1 {
+    height: 50px;
+    cursor: pointer;
+}
+
+.table {
+    width: 100%;
+    text-align: left;
+}
+
+.gr1 {
+    width: 100%;
+}
+/*
+.edit {
+    height: 22px;
+    cursor: pointer;
+}*/
+
+.del {
+    margin-left: 25px;
+    height: 32px;
+    cursor: pointer;
+}
+
+td {
+    padding: 0 10px;
+}
+
+th {
+    padding: 0 10px;
+}
+
+.head {
+    height: 26px;
+    cursor: pointer;
+}
