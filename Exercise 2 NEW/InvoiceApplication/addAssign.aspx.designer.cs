@@ -15,40 +15,40 @@ namespace InvoiceApplication
     {
 
         /// <summary>
-        /// Label1 control.
+        /// heading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label heading;
 
         /// <summary>
-        /// ddl1 control.
+        /// DropDownListParty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl1;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListParty;
 
         /// <summary>
-        /// ddl2 control.
+        /// DropDownListProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl2;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListProduct;
 
         /// <summary>
-        /// text control.
+        /// textMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label text;
+        protected global::System.Web.UI.WebControls.Label textMsg;
 
         /// <summary>
         /// save control.

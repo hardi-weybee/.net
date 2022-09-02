@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="addParty">
         <div class="addPartyHeading">
-            <asp:Label ID="Label1" runat="server" Text="Add Party"></asp:Label>
+            <asp:Label ID="heading" runat="server" Text="Add Party"></asp:Label>
         </div>
 
         <table class="addPartyBody">
@@ -21,7 +21,7 @@
         </table>
 
         <div class="success">
-            <asp:Label ID="text" runat="server" ></asp:Label>
+            <asp:Label ID="textMsg" runat="server" ></asp:Label>
         </div>
 
         <div class="addPartyBtn">

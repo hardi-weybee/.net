@@ -20,7 +20,7 @@ namespace InvoiceApplication
             {
                 if (Request.QueryString["id"] != null)
                 {
-                    Label1.Text = "Update Product";
+                    heading.Text = "Update Product";
                     productName.Text = Request.QueryString["name"];
                     update.Visible = true;
                     save.Visible = false;
@@ -30,77 +30,65 @@ namespace InvoiceApplication
 
         protected void save_Click(object sender, EventArgs e)
         {
-            try
-            {
-                SqlCommand cm = new SqlCommand("select ProductName from productData where ProductName= '"+ productName.Text + "'", conn.GetSqlConnection());
-                
-                SqlDataReader sd = cm.ExecuteReader();
-                sd.Read();
-                if(sd["ProductName"].ToString() != null)
-                {
-                    text.Text = "Product Name already exists... Please add other product";                   
-                }             
-            }
-            catch (Exception ex)
+            if(!CheckProductExists())
             {
                 try
                 {
-                    c.CloseSqlConnection();
                     SqlCommand sc = new SqlCommand("insert into productData(ProductName)values('" + productName.Text + "')", conn.GetSqlConnection());
-                    
                     sc.ExecuteNonQuery();
 
-                    text.Text = "Product Added Successfully.....";
-                } catch(Exception em)
+                    textMsg.Text = "Product Added Successfully.....";
+                }
+                catch (Exception em)
                 {
                     Response.Write(em.Message);
-                } finally
+                }
+                finally
                 {
                     c.CloseSqlConnection();
                 }
             }
-            finally
-            {
-                c.CloseSqlConnection();
-            }
         }
-      
+
+        private bool CheckProductExists()
+        {
+            bool IsExists = false;
+            SqlCommand cm = new SqlCommand("select ProductName from productData where ProductName= '" + productName.Text + "'", conn.GetSqlConnection());
+
+            SqlDataReader sd = cm.ExecuteReader();
+            sd.Read();
+            if(sd.HasRows)
+            {               
+                IsExists = true;
+                textMsg.Text = "Product Name already exists...";             
+            }
+            c.CloseSqlConnection();
+            return IsExists;
+        }
+
         protected void update_Click(object sender, EventArgs e)
         {
-            try
-            {
-                SqlCommand cm = new SqlCommand("select ProductName from productData where ProductName= '" + productName.Text + "'", conn.GetSqlConnection());
-                
-                SqlDataReader sd = cm.ExecuteReader();
-                sd.Read();
-                if (sd["ProductName"].ToString() != null)
-                {
-                    text.Text = "Product Name already There... Cannot update";
-                }               
-            }
-            catch (Exception ex)
+            if (!CheckProductExists())
             {
                 try
                 {
                     SqlCommand sc = new SqlCommand("update productData set ProductName='" + productName.Text + "'where ID='" + Request.QueryString["id"] + "'", conn.GetSqlConnection());
-                    
+
                     sc.ExecuteNonQuery();
 
-                    text.Text = "Product Updated Successfully.....";
-                } catch(Exception em)
+                    textMsg.Text = "Product Updated Successfully.....";
+                }
+                catch (Exception em)
                 {
                     Response.Write(em.Message);
-                } finally
+                }
+                finally
                 {
                     c.CloseSqlConnection();
-                }               
-            }
-            finally
-            {
-                c.CloseSqlConnection();
+                }
             }
         }
-
+                                                        
         protected void cancel_Click(object sender, EventArgs e)
         {
             if (System.Windows.Forms.MessageBox.Show("Are you sure you want to cancel the operation", "Conformation Page", (MessageBoxButtons)MessageBoxButton.YesNo) == DialogResult.Yes)

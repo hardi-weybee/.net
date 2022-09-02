@@ -14,7 +14,7 @@
             <tr>
                 <td class="name">Product Name : </td>
                 <td>
-                    <asp:DropDownList CssClass="ddl" ID="ddl1" runat="server">
+                    <asp:DropDownList CssClass="ddl" ID="DropDownListProduct" runat="server">
                         <asp:ListItem Selected="True" Text="Select Product"></asp:ListItem>
                     </asp:DropDownList>
                 </td>
@@ -29,10 +29,10 @@
             <tr>
                 <td class="name">Date Of Rate : </td>
                 <td>                   
-                    <asp:TextBox class="tb1" ID="dttb" runat="server" ></asp:TextBox>          <asp:Button class="tb2" ID="Button1" runat="server" Text="Select Date" OnClick="Button1_Click" />
+                    <asp:TextBox class="tb1" ID="dateTB" runat="server" ></asp:TextBox>          <asp:Button class="tb2" ID="Button1" runat="server" Text="Select Date" OnClick="Button1_Click" />
                     <br /><br />
                     
-                    <asp:Calendar ID="dt" runat="server" Visible="False" OnSelectionChanged="dt_SelectionChanged" Height="16px" Width="300px" CellPadding="0" >                      
+                    <asp:Calendar ID="dateCalender" runat="server" Visible="False" OnSelectionChanged="dateCalender_SelectionChanged" Height="16px" Width="300px" CellPadding="0" >                      
                         <DayStyle ForeColor="#6699FF" />
                         <TitleStyle BackColor="#99CCFF" Font-Bold="true" />
                         <TodayDayStyle ForeColor="black" BackColor="#99CCFF" />
@@ -42,7 +42,7 @@
         </table>
 
         <div class="success">
-            <asp:Label ID="text" runat="server" ></asp:Label>
+            <asp:Label ID="textMsg" runat="server" ></asp:Label>
         </div>
 
         <div class="addPRBtn">

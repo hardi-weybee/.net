@@ -24,31 +24,31 @@ namespace InvoiceApplication
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// ddl1 control.
+        /// DropDownListParty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl1;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListParty;
 
         /// <summary>
-        /// ddl2 control.
+        /// DropDownListProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl2;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListProduct;
 
         /// <summary>
-        /// TextBox3 control.
+        /// RateTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox RateTB;
 
         /// <summary>
         /// TextBox4 control.
@@ -69,13 +69,13 @@ namespace InvoiceApplication
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// Button1 control.
+        /// AddInvoiceBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button AddInvoiceBtn;
 
         /// <summary>
         /// GridView1 control.
@@ -87,30 +87,30 @@ namespace InvoiceApplication
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// grd control.
+        /// GrandTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl grd;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl GrandTotal;
 
         /// <summary>
-        /// Label2 control.
+        /// answer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label answer;
 
         /// <summary>
-        /// Button2 control.
+        /// CloseInvoiceBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button CloseInvoiceBtn;
     }
 }

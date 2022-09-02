@@ -20,7 +20,7 @@ namespace InvoiceApplication
             {
                 if (Request.QueryString["id"] != null)
                 {
-                    Label1.Text = "Update Party";
+                    heading.Text = "Update Party";
                     partyName.Text = Request.QueryString["name"];
                     update.Visible = true;
                     save.Visible = false;
@@ -35,10 +35,9 @@ namespace InvoiceApplication
                 try
                 {
                     SqlCommand sc = new SqlCommand("insert into partyData(PartyName)values('" + partyName.Text + "')", conn.GetSqlConnection());
-
                     sc.ExecuteNonQuery();
 
-                    text.Text = "Party Added Successfully.....";
+                    textMsg.Text = "Party Added Successfully.....";
                 }
                 catch (Exception em)
                 {
@@ -54,40 +53,30 @@ namespace InvoiceApplication
         private bool CheckPartyExists()
         {
             bool IsExists = false;
+
             SqlCommand cm = new SqlCommand("select PartyName from partyData where PartyName= '" + partyName.Text + "'", conn.GetSqlConnection());
 
             SqlDataReader sd = cm.ExecuteReader();
             sd.Read();
-            if (sd["PartyName"].ToString() != null)
-            {
+            if(sd.HasRows)
+            {               
                 IsExists = true;
-                text.Text = "Party Name already exists... Please add other party";
-            }
+                textMsg.Text = "Party Name already exists...";              
+            }          
+            c.CloseSqlConnection();
             return IsExists;
         }
 
         protected void update_Click(object sender, EventArgs e)
         {
-            try
-            {
-                SqlCommand cm = new SqlCommand("select PartyName from partyData where PartyName= '" + partyName.Text + "'", conn.GetSqlConnection());
-
-                SqlDataReader sd = cm.ExecuteReader();
-                sd.Read();
-                if (sd["PartyName"].ToString() != null)
-                {
-                    text.Text = "Party Name already There... Cannot update";
-                }
-            }
-            catch (Exception ex)
+            if(!CheckPartyExists())
             {
                 try
                 {
                     SqlCommand sc = new SqlCommand("update partyData set PartyName='" + partyName.Text + "'where ID='" + Request.QueryString["id"] + "'", conn.GetSqlConnection());
-
                     sc.ExecuteNonQuery();
 
-                    text.Text = "Party Updated Successfully.....";
+                    textMsg.Text = "Party Updated Successfully.....";
                 }
                 catch (Exception em)
                 {
@@ -97,11 +86,7 @@ namespace InvoiceApplication
                 {
                     c.CloseSqlConnection();
                 }
-            }
-            finally
-            {
-                c.CloseSqlConnection();
-            }
+            }                                       
         }
 
         protected void cancel_Click(object sender, EventArgs e)

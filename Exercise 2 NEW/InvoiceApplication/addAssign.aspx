@@ -7,14 +7,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="addAssign">
         <div class="addAssignHeading">
-            <asp:Label ID="Label1" runat="server" Text="Assign Party Add"></asp:Label>
+            <asp:Label ID="heading" runat="server" Text="Assign Party Add"></asp:Label>
         </div>
 
         <table class="addAssignBody">
             <tr>
                 <td class="name">Party Name : </td>
                 <td>
-                    <asp:DropDownList CssClass="ddl" ID="ddl1" runat="server">
+                    <asp:DropDownList CssClass="ddl" ID="DropDownListParty" runat="server">
                         
                     </asp:DropDownList>
                 </td>
@@ -22,7 +22,7 @@
             <tr>
                 <td class="name">Product Name : </td>
                 <td>
-                    <asp:DropDownList CssClass="ddl" ID="ddl2" runat="server">
+                    <asp:DropDownList CssClass="ddl" ID="DropDownListProduct" runat="server">
                         <asp:ListItem Selected="True" Text="Select Product"></asp:ListItem>
                     </asp:DropDownList>
                 </td>
@@ -30,7 +30,7 @@
         </table>
 
         <div class="success">
-            <asp:Label ID="text" runat="server" ></asp:Label>
+            <asp:Label ID="textMsg" runat="server" ></asp:Label>
         </div>
         
         <div class="addAssignBtn">

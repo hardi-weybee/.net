@@ -18,91 +18,100 @@ namespace InvoiceApplication
         protected void Page_Load(object sender, EventArgs e)
         {           
             if (!IsPostBack)
-            {  
-                try
-                {
-                    SqlDataAdapter sda1 = new SqlDataAdapter("select * from partyData", conn.GetSqlConnection());
-                    
-                    DataTable dt1 = new DataTable();
-                    sda1.Fill(dt1);
-                    ddl1.DataSource = dt1;
-                    //ddl1.DataBind();
-                    ddl1.DataTextField = "PartyName";
-                    ddl1.DataValueField = "ID";
-                    ddl1.DataBind();
-                    ddl1.Items.Insert(0, new ListItem("Select Party", "0"));
+            {
+                DisplayPartyProductDropDown();
 
-                    SqlDataAdapter sda2 = new SqlDataAdapter("select * from productData", conn.GetSqlConnection());
-                    DataTable dt2 = new DataTable();
-                    sda2.Fill(dt2);
-                    ddl2.DataSource = dt2;
-                    //ddl2.DataBind();
-                    ddl2.DataTextField = "ProductName";
-                    ddl2.DataValueField = "ID";
-                    ddl2.DataBind();
-                    ddl2.Items.Insert(0, new ListItem("Select Product", "0"));
-
-                }
-                catch (Exception ex)
-                {
-                    Response.Write(ex.Message);
-                }
-                finally
-                {
-                    c.CloseSqlConnection();
-                }
                 if (Request.QueryString["id"] != null)
                 {
-                    try
-                    {
-                        Label1.Text = "Update Assign";
-                        SqlCommand scm = new SqlCommand("select partyID from assignPartyData where ID=" + Request.QueryString["id"] + "", conn.GetSqlConnection());
-                        
-                        SqlDataReader sdr = scm.ExecuteReader();
-                        sdr.Read();
-                        ddl1.SelectedItem.Value = sdr["partyID"].ToString();
-                        ddl1.SelectedItem.Text = Request.QueryString["name1"];
-                    }
-                    catch (Exception ex)
-                    {
-                        Response.Write(ex.Message);
-                    }
-                    finally
-                    {
-                        c.CloseSqlConnection();
-                    }
-                    try
-                    {
-                        SqlCommand scm1 = new SqlCommand("select productID from assignPartyData where ID=" + Request.QueryString["id"] + "", conn.GetSqlConnection());
-                        
-                        SqlDataReader sdr1 = scm1.ExecuteReader();
-                        sdr1.Read();
-                        ddl2.SelectedItem.Value = sdr1["productID"].ToString();
-                        ddl2.SelectedItem.Text = Request.QueryString["name2"];                       
-                    }
-                    catch (Exception ex)
-                    {
-                        Response.Write(ex.Message);
-                    }
-                    finally
-                    {
-                        c.CloseSqlConnection();
-                    }
+                    GetSelectedPartyName();
+                    GetSelectedProductName();
                     update.Visible = true;
                     save.Visible = false;
                 }
-            }     
+            }
+        }
+
+        private void DisplayPartyProductDropDown()
+        {
+            try
+            {
+                SqlDataAdapter sda1 = new SqlDataAdapter("select * from partyData", conn.GetSqlConnection());
+                DataTable dt1 = new DataTable();
+                sda1.Fill(dt1);
+                DropDownListParty.DataSource = dt1;
+                DropDownListParty.DataTextField = "PartyName";
+                DropDownListParty.DataValueField = "ID";
+                DropDownListParty.DataBind();
+                DropDownListParty.Items.Insert(0, new ListItem("Select Party", "0"));
+
+
+                SqlDataAdapter sda2 = new SqlDataAdapter("select * from productData", conn.GetSqlConnection());
+                DataTable dt2 = new DataTable();
+                sda2.Fill(dt2);
+                DropDownListProduct.DataSource = dt2;
+                DropDownListProduct.DataTextField = "ProductName";
+                DropDownListProduct.DataValueField = "ID";
+                DropDownListProduct.DataBind();
+                DropDownListProduct.Items.Insert(0, new ListItem("Select Product", "0"));
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+            finally
+            {
+                c.CloseSqlConnection();
+            }
+        }
+
+        private void GetSelectedProductName()
+        {
+            try
+            {
+                SqlCommand scm1 = new SqlCommand("select productID from assignPartyData where ID=" + Request.QueryString["id"] + "", conn.GetSqlConnection());
+                SqlDataReader sdr1 = scm1.ExecuteReader();
+                sdr1.Read();
+                DropDownListProduct.SelectedItem.Value = sdr1["productID"].ToString();
+                DropDownListProduct.SelectedItem.Text = Request.QueryString["name2"];
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+            finally
+            {
+                c.CloseSqlConnection();
+            }
+        }
+
+        private void GetSelectedPartyName()
+        {
+            try
+            {
+                heading.Text = "Update Assign";
+                SqlCommand scm = new SqlCommand("select partyID from assignPartyData where ID=" + Request.QueryString["id"] + "", conn.GetSqlConnection());
+                SqlDataReader sdr = scm.ExecuteReader();
+                sdr.Read();
+                DropDownListParty.SelectedItem.Value = sdr["partyID"].ToString();
+                DropDownListParty.SelectedItem.Text = Request.QueryString["name1"];
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+            finally
+            {
+                c.CloseSqlConnection();
+            }
         }
 
         protected void save_Click(object sender, EventArgs e)
         {
             try
             {
-                SqlCommand sc = new SqlCommand("insert into assignPartyData(partyID, productID)values('" + Convert.ToInt32(ddl1.SelectedValue) + "','" + Convert.ToInt32(ddl2.SelectedValue) + "')", conn.GetSqlConnection());               
-                                                       
+                SqlCommand sc = new SqlCommand("insert into assignPartyData(partyID, productID)values('" + Convert.ToInt32(DropDownListParty.SelectedValue) + "','" + Convert.ToInt32(DropDownListProduct.SelectedValue) + "')", conn.GetSqlConnection());
                 sc.ExecuteNonQuery();
-
-                text.Text = "Added Successfully.....";
+                textMsg.Text = "Added Successfully.....";
             }
             catch (Exception ex)
             {
@@ -118,11 +127,9 @@ namespace InvoiceApplication
         {
             try
             {
-                SqlCommand sc = new SqlCommand("update assignPartyData set partyID='" + Convert.ToInt32(ddl1.SelectedValue) + "', productID='" + Convert.ToInt32(ddl2.SelectedValue) + "'where ID='" + Request.QueryString["id"] + "'", conn.GetSqlConnection());
-                
+                SqlCommand sc = new SqlCommand("update assignPartyData set partyID='" + Convert.ToInt32(DropDownListParty.SelectedValue) + "', productID='" + Convert.ToInt32(DropDownListProduct.SelectedValue) + "'where ID='" + Request.QueryString["id"] + "'", conn.GetSqlConnection());                
                 sc.ExecuteNonQuery();
-
-                text.Text = "Updated Successfully.....";
+                textMsg.Text = "Updated Successfully.....";
             }
             catch (Exception ex)
             {

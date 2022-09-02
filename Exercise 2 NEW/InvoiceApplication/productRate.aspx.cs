@@ -19,11 +19,11 @@ namespace InvoiceApplication
         {
             if(!IsPostBack)
             {
-                addData();
+                displayData();
             }           
         }
 
-        protected void addData()
+        protected void displayData()
         {
             try
             {
@@ -44,7 +44,7 @@ namespace InvoiceApplication
             }
         }
 
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        protected void EditBtn_Click(object sender, ImageClickEventArgs e)
         {
             int rowIndex = ((GridViewRow)(sender as System.Web.UI.Control).NamingContainer).RowIndex;
             int id = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[0].Text);
@@ -54,7 +54,7 @@ namespace InvoiceApplication
             Response.Redirect("addProductRate.aspx?id=" + id + "&name1=" + name1);
         }
 
-        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+        protected void DeleteBtn_Click(object sender, ImageClickEventArgs e)
         {
             int rowIndex = ((GridViewRow)(sender as System.Web.UI.Control).NamingContainer).RowIndex;
             int id = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[0].Text);
@@ -66,7 +66,7 @@ namespace InvoiceApplication
                 if (System.Windows.Forms.MessageBox.Show("Are you sure you want to delete this Product Detail", "myconfirm", (MessageBoxButtons)MessageBoxButton.YesNo) == DialogResult.Yes)
                 {
                     sc.ExecuteNonQuery();
-                    addData();
+                    displayData();
                 }
                 else
                 {

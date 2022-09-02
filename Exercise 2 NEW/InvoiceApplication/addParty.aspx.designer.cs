@@ -15,13 +15,13 @@ namespace InvoiceApplication
     {
 
         /// <summary>
-        /// Label1 control.
+        /// heading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label heading;
 
         /// <summary>
         /// partyName control.
@@ -42,13 +42,13 @@ namespace InvoiceApplication
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// text control.
+        /// textMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label text;
+        protected global::System.Web.UI.WebControls.Label textMsg;
 
         /// <summary>
         /// save control.

@@ -24,13 +24,13 @@ namespace InvoiceApplication
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// ddl1 control.
+        /// DropDownListProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl1;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListProduct;
 
         /// <summary>
         /// productRate control.
@@ -51,13 +51,13 @@ namespace InvoiceApplication
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// dttb control.
+        /// dateTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dttb;
+        protected global::System.Web.UI.WebControls.TextBox dateTB;
 
         /// <summary>
         /// Button1 control.
@@ -69,22 +69,22 @@ namespace InvoiceApplication
         protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// dt control.
+        /// dateCalender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar dt;
+        protected global::System.Web.UI.WebControls.Calendar dateCalender;
 
         /// <summary>
-        /// text control.
+        /// textMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label text;
+        protected global::System.Web.UI.WebControls.Label textMsg;
 
         /// <summary>
         /// save control.

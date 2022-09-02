@@ -17,21 +17,21 @@
             <tr>
                 <td class="rows">Party Name :</td>
                 <td>
-                    <asp:DropDownList CssClass="ddl" ID="ddl1" runat="server" OnSelectedIndexChanged="ddl1_SelectedIndexChanged" AutoPostBack="true" >
+                    <asp:DropDownList CssClass="ddl" ID="DropDownListParty" runat="server" OnSelectedIndexChanged="DropDownListParty_SelectedIndexChanged" AutoPostBack="true" >
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td class="rows">Product Name :</td>
                 <td>
-                    <asp:DropDownList CssClass="ddl" ID="ddl2" runat="server" OnSelectedIndexChanged="ddl2_SelectedIndexChanged" AutoPostBack="true">
+                    <asp:DropDownList CssClass="ddl" ID="DropDownListProduct" runat="server" OnSelectedIndexChanged="DropDownListProduct_SelectedIndexChanged" AutoPostBack="true">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td class="rows">Current Rate :</td>
                 <td>
-                    <asp:TextBox CssClass="tb" ID="TextBox3" runat="server" Enabled="False"></asp:TextBox>
+                    <asp:TextBox CssClass="tb" ID="RateTB" runat="server" Enabled="False"></asp:TextBox>
                     </td>
             </tr>
             <tr>
@@ -45,7 +45,7 @@
         </table>
 
         <div class="addBtn">
-            <asp:Button CssClass="addInvoice" ID="Button1" runat="server" Text="Add To Invoice" OnClick="Button1_Click" />
+            <asp:Button CssClass="addInvoice" ID="AddInvoiceBtn" runat="server" Text="Add To Invoice" OnClick="AddInvoiceBtn_Click" />
         </div>
 
         <br /><br />
@@ -75,11 +75,11 @@
         <br /><br />
 
         <div class="total1">
-            <h2 ID="grd" runat="server">Grand Total: </h2>   <asp:Label ID="Label2" runat="server" ></asp:Label>
+            <h2 ID="GrandTotal" runat="server">Grand Total: </h2>   <asp:Label ID="answer" runat="server" ></asp:Label>
         </div>
 
         <div class="total1">
-            <asp:Button CssClass="closeInvoice" ID="Button2" runat="server" Text="Close Invoice" OnClick="Button2_Click" CausesValidation="false"/>
+            <asp:Button CssClass="closeInvoice" ID="CloseInvoiceBtn" runat="server" Text="Close Invoice" OnClick="CloseInvoiceBtn_Click" CausesValidation="false"/>
         </div>
     </div>
     

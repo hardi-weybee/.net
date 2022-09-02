@@ -12,8 +12,6 @@
 
         <div class="btnRate">
             <asp:ImageButton CssClass="btn1" ID="addNewPR" runat="server" PostBackUrl="~/addProductRate.aspx" ToolTip="Add New Product Rate" ImageUrl="~/images/icons8-add-100.png" />
-
-            <%--<asp:Button CssClass="btn1" ID="addNewPR" runat="server" Text="Add New Product Rate" PostBackUrl="~/addProductRate.aspx"  />--%>
         </div>
 
         <br />
@@ -29,8 +27,8 @@
                         <asp:BoundField DataField="DateOfRate" HeaderText="Date Of Rate" SortExpression="DateOfRate" />
                         <asp:TemplateField HeaderText="Actions">
                             <ItemTemplate>
-                                <asp:ImageButton CssClass="head" ID="ImageButton1" runat="server" ImageUrl="~/images/icons8-edit.svg" OnClick="ImageButton1_Click" ToolTip="Edit" />
-                                <asp:ImageButton CssClass="del" ID="ImageButton2" runat="server" ImageUrl="~/images/icons8-trash.svg" OnClick="ImageButton2_Click" ToolTip="Delete" />
+                                <asp:ImageButton CssClass="head" ID="EditBtn" runat="server" ImageUrl="~/images/icons8-edit.svg" OnClick="EditBtn_Click" ToolTip="Edit" />
+                                <asp:ImageButton CssClass="del" ID="DeleteBtn" runat="server" ImageUrl="~/images/icons8-trash.svg" OnClick="DeleteBtn_Click" ToolTip="Delete" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
