@@ -1,0 +1,75 @@
+﻿@model ProductModel
+@{
+    var model = Model;
+    ViewData["Title"] = "Add Product";
+    string action;
+}
+
+<section class="jumbotron text-center">
+    <div class="container">
+        @if (ViewBag.id > 0)
+        {
+            action = "EditProduct";
+            <label class="heading">Update Product</label>
+
+        }
+        else
+        {
+            action = "AddProduct";
+            <label class="heading">Add Product</label>
+        }
+
+        @if (ViewBag.Success == 1)
+        {
+            if (ViewBag.id == 0)
+            {
+                <div class="successmsg alert alert-success" role="alert">
+                    Product Added Successfully
+                </div>
+            }
+            else
+            {
+                <div class="successmsg alert alert-success" role="alert">
+                    Product Updated Successfully
+                </div>
+            }
+        }
+        else if (ViewBag.Success == 2)
+        {
+            <div class="successmsg alert alert-danger" role="alert">
+                Product Name already exists..
+            </div>            
+        }
+
+        <form method="post" asp-controller="Product" asp-action="@action">
+            <div class="line form-group row">
+                <label asp-for="ProductName" class="line1 col-sm-2" style="font-size:x-large"></label>
+                <div class="line2 col-sm-10">
+                    @if (ViewBag.Success == 1 && ViewBag.id > 0)
+                    {
+                        <input asp-for="ProductName" class="form-control" disabled value="" style="background-color: #fff" />
+                    }
+                    else
+                    {
+                        <input asp-for="ProductName" class="form-control" />
+                    }
+                    <div class="vali">
+                        <span asp-validation-for="ProductName" class="text-danger"></span>
+                    </div>
+                    </div>
+                </div>
+            <div>
+                @if (action == "AddProduct")
+                {
+                    <input type="submit" value="Save" class="button btn btn-info" style="margin:10px 10px;" />
+                }
+                @if (action == "EditProduct")
+                {
+                    <input type="submit" value="Update" class="button btn btn-info" style="margin:10px 10px;" />
+                }
+                <input asp-controller="Product" asp-action="GetAllProduct" type="submit" value="Cancel" class="button btn btn-info" style="margin:10px 10px;" />
+            </div>
+        </form>
+
+    </div>
+</section>

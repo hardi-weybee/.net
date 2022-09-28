@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Product";
+}
+
+<section class="jumbotron text-center">
+    <div class="container" style="margin-top:30px;">
+        <h1 class="heading">Product List</h1>
+        <div>
+            <a asp-controller="Product" asp-action="AddProduct"><i class="addicon bi bi-plus-square" title="Add New Product"></i></a>
+        </div>
+    </div>
+</section>
+
+<div class="py-5">
+    <div class="container">
+        <table class="table" style=" font-size: 20px;">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">ID</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+
+            @foreach (var product in Model)
+            {
+                <tbody style="line-height:25px">
+                    <tr>
+                        <th scope="row">@product.ID</th>
+                        <td>@product.ProductName</td>
+                        <td>
+                            <a data-value="@product.ID" asp-controller="Product" asp-action="EditProduct"  asp-route-id="@product.ID" asp-route-name="@product.ProductName">
+                                <i class="editicon bi bi-pencil-square" title="Edit"></i></a>
+                            <a data-value="@product.ID" asp-action="DeleteProduct" asp-controller="Product" asp-route-id="@product.ID" style="margin-left:25px">
+                               <i class="deleteicon bi bi-trash" title="Delete"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>

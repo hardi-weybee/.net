@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Party";
+}
+
+<section class="jumbotron text-center">
+    <div class="container" style="margin-top:30px;">
+        <h1 class="heading">Party List</h1>
+        <div>
+            <a asp-controller="Party" asp-action="AddParty"><i class="addicon bi bi-plus-square" title="Add New Party"></i></a>
+        </div>
+    </div>
+</section>
+
+<div class="py-5">
+    <div class="container">
+        <table class="table" style=" font-size: 20px;">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">ID</th>
+                    <th scope="col">Party Name</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+
+            @foreach (var party in Model)
+            {
+                <tbody style="line-height:25px">
+                    <tr>
+                        <th scope="row">@party.ID</th>
+                        <td>@party.PartyName</td>
+                        <td>
+                            <a data-value="@party.ID" asp-controller="Party" asp-action="EditParty" asp-route-Id="@party.ID" asp-route-name="@party.PartyName">
+                                <i class="editicon bi bi-pencil-square" title="Edit"></i></a>
+                            <a data-value="@party.ID" asp-controller="Party" asp-action="DeleteParty" asp-route-Id="@party.ID" style="margin-left:25px">
+                                <i class="deleteicon bi bi-trash" title="Delete"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>

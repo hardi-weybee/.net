@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Assign Party";
+}
+
+<section class="jumbotron text-center">
+    <div class="container" style="margin-top:30px;">
+        <h1 class="heading">Assign Party List</h1>
+        <div>
+            <a asp-controller="AssignParty" asp-action="AddAssignParty"><i class="addicon bi bi-plus-square" title="Add New Assign"></i></a>
+        </div>
+    </div>
+</section>
+
+<div class="py-5">
+    <div class="container">
+        <table class="table" style=" font-size: 20px;">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">ID</th>
+                    <th scope="col">Party Name</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+
+            @foreach (var assign in Model)
+            {
+                <tbody style="line-height:25px">
+                    <tr>
+                        <th scope="row">@assign.ID</th>
+                        <td>@assign.Party.PartyName</td>
+                        <td>@assign.Product.ProductName</td>
+                        <td>
+                            <a data-value="@assign.ID" asp-controller="AssignParty" asp-action="EditAssignParty" asp-route-Id="@assign.ID" asp-route-partyname="@assign.partyID" asp-route-proname="@assign.productID">
+                                <i class="editicon bi bi-pencil-square" title="Edit"></i></a>
+                            <a data-value="@assign.ID" asp-controller="AssignParty" asp-action="DeleteAssignParty" asp-route-Id="@assign.ID" style="margin-left:25px">
+                                <i class="deleteicon bi bi-trash" title="Delete"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>

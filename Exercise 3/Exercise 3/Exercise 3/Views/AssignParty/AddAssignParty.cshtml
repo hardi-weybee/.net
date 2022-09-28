@@ -1,0 +1,185 @@
+﻿@model AssignPartyModel
+@inject Exercise_3.Repositorys.ProductRepository productRepo
+@inject Exercise_3.Repositorys.PartyRepository partyRepo
+@{
+    ViewData["Title"] = "AddAssignParty";
+    string action;
+}
+
+
+<section class="jumbotron text-center">
+    <div class="container">
+        @if (ViewBag.id > 0)
+        {
+            action = "EditAssignParty";
+            <label class="heading">Update Assign</label>
+        }
+        else
+        {
+            action = "AddAssignParty";
+            <label class="heading">Add Assign</label>
+        }
+
+        @if (ViewBag.Success == 1)
+        {
+            if (ViewBag.id == 0)
+            {
+                <div class="successmsg alert alert-success" role="alert">
+                    Data Added Successfully
+                </div>
+            }
+            else
+            {
+                <div class="successmsg alert alert-success" role="alert">
+                    Data Updated Successfully
+                </div>
+            }
+        }
+        else if (ViewBag.Success == 2)
+        {
+            <div class="successmsg alert alert-danger" role="alert">
+                Data already exists..
+            </div>
+        }
+
+        <form method="post" asp-controller="AssignParty" asp-action="@action">
+            <div class="line form-group row">
+                <label asp-for="partyID" class="line1 col-sm-2" style="font-size:x-large;"></label>
+                <div class="line2 col-sm-10">
+                    @*@if (ViewBag.Success == 1 && ViewBag.id > 0)
+                    {
+                        <select id="partylist" asp-for="partyID" class="ddl form-control" disabled style="background-color: #fff" asp-items="(await partyRepo.GetAllParty())
+                                                                .Select(x => new SelectListItem() { Text = x.PartyName, Value = x.ID.ToString()})">
+                            <option value="">Please select Party</option>
+                        </select>
+                    }
+                    else
+                    {
+                        <select id="partylist" asp-for="partyID" class="ddl form-control" asp-items="(await partyRepo.GetAllParty())
+                                                                .Select(x => new SelectListItem() { Text = x.PartyName, Value = x.ID.ToString()})">
+                            <option value="">Please select Party</option>
+                        </select>
+                    }*@
+                    <select id="partylist" asp-for="partyID" class="ddl form-control" asp-items="(await partyRepo.GetAllParty())
+                                                                .Select(x => new SelectListItem() { Text = x.PartyName, Value = x.ID.ToString()})">
+                        <option value="">Please select Party</option>
+                    </select>
+                    <div class="vali">
+                        <span asp-validation-for="partyID" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="line form-group row">
+                <label asp-for="productID" class="line1 col-sm-2" style="font-size:x-large"></label>
+                <div class="line2 col-sm-10">
+                    @*@if (ViewBag.Success == 1 && ViewBag.id > 0)
+                    {
+                        <select id="productlist" asp-for="productID" class="ddl form-control" disabled style="background-color: #fff" asp-items="(await productRepo.GetAllProduct())
+                                                .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString() })">
+                            <option value="">Please select Product</option>
+                        </select>
+                    }
+                    else
+                    {
+                        <select id="productlist" asp-for="productID" class="ddl form-control" asp-items="(await productRepo.GetAllProduct())
+                                                .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString() })">
+                            <option value="">Please select Product</option>
+                        </select>
+                    }*@
+                    <select id="productlist" asp-for="productID" class="ddl form-control" asp-items="(await productRepo.GetAllProduct())
+                                             .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString() })">
+                        <option value="">Please select Product</option>
+                    </select>
+                    <div class="vali">
+                        <span asp-validation-for="productID" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+                @if (action == "AddAssignParty")
+                {
+                    <input type="submit" value="Save" class="button btn btn-info" style="margin:10px 10px;" />
+                }
+                @if (action == "EditAssignParty")
+                {
+                    <input type="submit" value="Update" class="button btn btn-info" style="margin:10px 10px;" />
+                }
+                <input asp-controller="AssignParty" asp-action="GetAllAssignParty" type="submit" value="Cancel" class="button btn btn-info" style="margin:10px 10px;" />
+            </div>
+        </form>
+
+    </div>
+</section>
+<script src="~/lib/jquery/jquery.js"></script>
+@*@if (action == "AddAssignParty")
+{*@
+    <script>
+        $("#partylist").change(function () {
+            var partyID = parseInt($(this).val());
+            var partyID = $('#partylist option:selected').val();
+            if (!isNaN(partyID)) {
+                var productlist = $('#productlist');
+                productlist.empty();
+                productlist.append($("<option></option>").val('').html('Please wait ...'));
+
+                debugger;
+                $.ajax({
+                    url: 'https://localhost:44388/AssignParty/getProductsNotAssigned',
+                    type: 'GET',
+                    //dataType: 'json',
+                    data: { partyID: partyID },
+
+                    success: function (d) {
+                        debugger;
+                        productlist.empty(); // Clear the please wait
+                        productlist.append($("<option></option>").val('').html('Please select Product'));
+                        $.each(d.value, function (i, product) {
+                            productlist.append($("<option></option>").val(product.id).html(product.productName));
+                        });
+                    },
+                    error: function () {
+                        alert('Error!');
+                    }
+                });
+            }
+        });
+    </script>
+@*}    
+else  
+{
+    <script>
+        $(document).ready(function () {
+            //var partyID = parseInt($(this).val());
+            var partyID = $('#partylist option:selected').val();
+            if (!isNaN(partyID)) {
+                var productlist = $('#productlist');
+                productlist.empty();
+                productlist.append($("<option></option>").val('').html('Please wait ...'));
+
+                debugger;
+                $.ajax({
+                    url: 'https://localhost:44388/AssignParty/getProductsNotAssigned',
+                    type: 'GET',
+                    //dataType: 'json',
+                    data: { partyID: partyID },
+
+                    success: function (d) {
+                        debugger;
+                        productlist.empty(); // Clear the please wait
+                        productlist.append($("<option></option>").val('').html('Please select Product'));
+                        $.each(d.value, function (i, product) {
+                            productlist.append($("<option></option>").val(product.id).html(product.productName));
+                        });
+                    },
+                    error: function () {
+                        alert('Error!');
+                    }
+                });
+            }
+        });
+    </script>
+}*@

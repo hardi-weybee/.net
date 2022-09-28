@@ -1,0 +1,36 @@
+﻿
+@model IEnumerable<InvoiceModel>
+
+<div class="py-5">
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Party Name</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Rate Of Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+
+            @foreach (var assign in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <th scope="row">@assign.ID</th>
+                            <td>@assign.PartyName</td>
+                            <td>@assign.ProductName</td>
+                            <td>@assign.CurrentRate</td>
+                            <td>@assign.Quantity</td>
+                            <td>@assign.Total</td>
+
+                        </tr>
+                    </tbody>
+                }
+        </table>
+
+        
+    </div>
+</div>

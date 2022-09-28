@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "GetAllProductRate";
+}
+
+<section class="jumbotron text-center">
+    <div class="container" style="margin-top:30px;">
+        <h1 class="heading">Product Rate List</h1>
+        <div>
+            <a asp-controller="ProductRate" asp-action="AddProductRate"><i class="addicon bi bi-plus-square" title="Add New Product Rate"></i></a>
+        </div>
+    </div>
+</section>
+
+<div class="py-5">
+    <div class="container">
+        <table class="table" style=" font-size: 20px;">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">ID</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Date Of Rate</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+
+            @foreach (var rate in Model)
+            {
+                <tbody style="line-height:25px">
+                    <tr>
+                        <th scope="row">@rate.ID</th>
+                        <td>@rate.Product.ProductName</td>
+                        <td>@rate.Rate</td>
+                        <td>@rate.DateOfRate.ToShortDateString()</td>
+                        <td>
+                            <a data-value="@rate.ID" asp-controller="ProductRate" asp-action="EditProductRate" asp-route-Id="@rate.ID" asp-route-proname="@rate.productID" asp-route-rate="@rate.Rate" asp-route-rdate="@rate.DateOfRate.ToShortDateString()">
+                                <i class="editicon bi bi-pencil-square" title="Edit"></i></a>
+                            <a data-value="@rate.ID" asp-controller="ProductRate" asp-action="DeleteProductRate" asp-route-Id="@rate.ID" style="margin-left:25px">
+                                <i class="deleteicon bi bi-trash" title="Delete"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>

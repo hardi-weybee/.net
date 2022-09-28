@@ -1,0 +1,74 @@
+﻿@model PartyModel
+@{
+    var model = Model;
+    ViewData["Title"] = "Add Party";
+    string action;
+}
+
+<section class="jumbotron text-center">
+    
+    <div class="container">
+        @if (ViewBag.id > 0)
+        {
+            action = "EditParty";
+            <label class="heading">Update Party</label>
+        }
+        else
+        {
+            action = "AddParty";
+            <label class="heading">Add Party</label>
+        }
+
+        @if (ViewBag.Success == 1)
+        {
+            if (ViewBag.id == 0)
+            {
+                <div class="successmsg alert alert-success" role="alert">
+                    Party Added Successfully
+                </div>
+            }
+            else
+            {
+                <div class="successmsg alert alert-success" role="alert">
+                    Party Updated Successfully
+                </div>
+            }
+        }
+        else if (ViewBag.Success == 2)
+        {
+            <div class="successmsg alert alert-danger" role="alert" >
+                Party Name already exists..
+            </div>
+        }
+
+        <form method="post" asp-controller="Party" asp-action="@action">
+            <div class="line form-group row">
+                <label asp-for="PartyName" class="line1 col-sm-2" style="font-size:x-large"></label>
+                <div class="line2 col-sm-10">
+                    @if(ViewBag.Success == 1 && ViewBag.id > 0)
+                    {
+                        <input asp-for="PartyName" class="form-control" disabled value="" style="background-color: #fff"/>
+                    }
+                    else
+                    {
+                        <input asp-for="PartyName" class="form-control" />
+                    }
+                    <div class="vali">
+                        <span asp-validation-for="PartyName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                @if (action == "AddParty")
+                {
+                    <input type="submit" value="Save" class="button btn btn-info" style="margin:10px 10px;" />
+                }
+                @if (action == "EditParty")
+                {
+                    <input type="submit" value="Update" class="button btn btn-info" style="margin:10px 10px;" />
+                }
+                <input asp-controller="Party" asp-action="GetAllParty" type="submit" value="Cancel" class="button btn btn-info" style="margin:10px 10px;" />
+            </div>
+        </form>  
+    </div>
+</section>

@@ -1,0 +1,94 @@
+﻿@model ProductRateModel
+@inject Exercise_3.Repositorys.ProductRepository productRepo
+@{
+    ViewData["Title"] = "AddProductRate";
+    string action;
+}
+
+<section class="jumbotron text-center">
+    <div class="container">
+        @if (ViewBag.id > 0)
+        {
+            action = "EditProductRate";
+            <label class="heading">Update Product Rate</label>
+        }
+        else
+        {
+            action = "AddProductRate";
+            <label class="heading">Add Product Rate</label>
+        }
+
+        @if (ViewBag.Success == 1)
+        {
+            if (ViewBag.id == 0)
+            {
+                <div class="successmsg alert alert-success" role="alert">
+                    Data Added Successfully
+                </div>
+            }
+            else
+            {
+                <div class="successmsg alert alert-success" role="alert">
+                    Data Updated Successfully
+                </div>
+            }
+        }
+        else if (ViewBag.Success == 2)
+        {
+            <div class="successmsg alert alert-danger" role="alert">
+                Data already exists..
+            </div>
+        }
+
+        <form method="post" asp-controller="ProductRate" asp-action="@action">
+
+            <div class="line form-group row">
+                <label asp-for="productID" class="line1 col-sm-2" style="font-size:x-large"></label>
+                <div class="line2 col-sm-10">
+                    <select asp-for="productID" class="form-control" asp-items="(await productRepo.GetAllProduct())
+                                                                .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString()})">
+                        <option value="">Please select Product</option>
+                    </select>
+                    <div class="vali">
+                        <span asp-validation-for="productID" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="line form-group row">
+                <label asp-for="Rate" class="line1 col-sm-2" style="font-size:x-large"></label>
+                <div class="line2 col-sm-10">
+                    <input asp-for="Rate" class="form-control" />
+                    <div class="vali">
+                        <span asp-validation-for="Rate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="line form-group row">
+                <label asp-for="DateOfRate" class="line1 col-sm-2" style="font-size:x-large"></label>
+                <div class="line2 col-sm-10">
+                    <input asp-for="DateOfRate" class="form-control" value="@ViewBag.rdate" />
+                    <div class="vali">
+                        <span asp-validation-for="DateOfRate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                @if (action == "AddProductRate")
+                {
+                    <input type="submit" value="Save" class="button btn btn-info" style="margin:10px 10px;" />
+                }
+                @if (action == "EditProductRate")
+                {
+                    <input type="submit" value="Update" class="button btn btn-info" style="margin:10px 10px;" />
+                }
+                <input asp-controller="ProductRate" asp-action="GetAllProductRate" type="submit" value="Cancel" class="button btn btn-info" style="margin:10px 10px;" />
+            </div>
+        </form>
+
+    </div>
+</section>
+
+

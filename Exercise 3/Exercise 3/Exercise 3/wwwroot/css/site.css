@@ -1,0 +1,182 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  /*background-color: #1b6ec2;*/
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  /*background-color: #1b6ec2;*/
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.main {
+    margin:10px;
+    background-color:black;
+}
+.headingmain {
+    font-weight: bolder;
+    font-size: x-large;
+    color: #cfe2ff;
+}
+:hover.headingmain {
+    color: #cfe2ff;
+}
+
+.list {
+    margin-left: 100px;
+    font-size: larger;
+}
+
+.links {
+    color: #cfe2ff;
+}
+:hover.links {
+    color: #cfe2ff;
+}
+
+.successmsg {
+    width: 50%;
+    margin: 20px auto;
+}
+
+.heading {
+    font-size: xxx-large;
+}
+
+.button {
+    background-color: #57b7d1;
+    color: white;
+    border-color: #198754;
+    margin-top: 10px;
+    font-size: large;
+}
+
+.buttonedit {
+    line-height: 15px;
+    background-color: #57b7d1;
+    border-color:darkgreen;
+}
+
+.buttondel {
+    line-height: 15px;
+    background-color: #d95764;
+    border-color:crimson;
+}
+
+.line {
+    margin: 10px 0;
+}
+
+.line1 {
+    width: 20%;
+    text-align: end;
+    font-size: larger;
+}
+
+.line2 {
+    width: 80%;
+}
+
+.vali {
+    margin: 10px;
+    float: left;
+}
+
+.message {
+    margin: 10px 10px 20px 10px;
+}
+
+.ddl {
+    margin:10px 0;
+}
+
+.last {
+    text-align: end;
+    float: right;
+    margin: 30px 12px;
+}
+
+.ans {
+    width: max-content;
+    align-self: center;
+    font-size: x-large;
+    margin:0 15px;
+}
+
+.addicon {
+    color: black;
+    font-size: 35px;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.editicon {
+    color: black;
+    font-size: 25px;
+}
+
+.deleteicon {
+    color: black;
+    font-size: 28px;
+}
