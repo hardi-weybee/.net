@@ -90,14 +90,14 @@
             productlist.empty();
             productlist.append($("<option></option>").val('').html('Please wait ...'));
 
-            debugger;
+            //debugger;
             $.ajax({
                 url: 'https://localhost:44388/Invoice/getProductByParty',
                 type: 'GET',
                 //dataType: 'json',
                 data: { partyID: partyID },
                 success: function (d) {
-                    debugger;
+                    //debugger;
                     productlist.empty(); // Clear the please wait
                     productlist.append($("<option></option>").val('').html('Please select Product'));
                     $.each(d, function (i, products) {
@@ -124,7 +124,13 @@
                 //dataType: 'json',
                 data: { productID: productID },
                 success: function (d) {
-                    rate.val(d)                
+                    rate.val(d)
+                    //debugger;
+                    if (d > 0) {
+                        rate.attr("readonly", true);
+                    } else {
+                        rate.removeAttr("readonly", false);
+                    }
                 },
                 error: function () {
                     alert('Error!');

@@ -81,72 +81,34 @@
 </section>
 
 <script src="~/lib/jquery/jquery.js"></script>
-@*@if (action == "AddAssignParty")
-{*@
-    <script>
-        $("#partylist").change(function () {
-            var partyID = parseInt($(this).val());
-            var partyID = $('#partylist option:selected').val();
-            if (!isNaN(partyID)) {
-                var productlist = $('#productlist');
-                productlist.empty();
-                productlist.append($("<option></option>").val('').html('Please wait ...'));
-                productlist.removeAttr("disabled")
 
-                debugger;
-                $.ajax({
-                    url: 'https://localhost:44388/AssignParty/getProductsNotAssigned',
-                    type: 'GET',
-                    //dataType: 'json',
-                    data: { partyID: partyID },
+<script>
+    $("#partylist").change(function () {
+        var partyID = parseInt($(this).val());
+        var partyID = $('#partylist option:selected').val();
+        if (!isNaN(partyID)) {
+            var productlist = $('#productlist');
+            productlist.removeAttr("disabled")
 
-                    success: function (d) {
-                        debugger;
-                        productlist.empty(); // Clear the please wait
-                        productlist.append($("<option></option>").val('').html('Please select Product'));
-                        $.each(d.value, function (i, product) {
-                            productlist.append($("<option></option>").val(product.id).html(product.productName));
-                        });
-                    },
-                    error: function () {
-                        alert('Error!');
-                    }
-                });
-            }
-        });
-    </script>
-@*}    
-else  
-{
-    <script>
-        $(document).ready(function () {
-            //var partyID = parseInt($(this).val());
-            var partyID = $('#partylist option:selected').val();
-            if (!isNaN(partyID)) {
-                var productlist = $('#productlist');
-                productlist.empty();
-                productlist.append($("<option></option>").val('').html('Please wait ...'));
+            debugger;
+            $.ajax({
+                url: 'https://localhost:44388/AssignParty/getProductsNotAssigned',
+                type: 'GET',
+                //dataType: 'json',
+                data: { partyID: partyID },
 
-                debugger;
-                $.ajax({
-                    url: 'https://localhost:44388/AssignParty/getProductsNotAssigned',
-                    type: 'GET',
-                    //dataType: 'json',
-                    data: { partyID: partyID },
-
-                    success: function (d) {
-                        debugger;
-                        productlist.empty(); // Clear the please wait
-                        productlist.append($("<option></option>").val('').html('Please select Product'));
-                        $.each(d.value, function (i, product) {
-                            productlist.append($("<option></option>").val(product.id).html(product.productName));
-                        });
-                    },
-                    error: function () {
-                        alert('Error!');
-                    }
-                });
-            }
-        });
-    </script>
-}*@
+                success: function (d) {
+                    debugger;
+                    productlist.empty(); // Clear the please wait
+                    productlist.append($("<option></option>").val('').html('Please select Product'));
+                    $.each(d.value, function (i, product) {
+                        productlist.append($("<option></option>").val(product.id).html(product.productName));
+                    });
+                },
+                error: function () {
+                    alert('Error!');
+                }
+            });
+        }
+    });
+</script> 
