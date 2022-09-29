@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Exercise_3.Repositorys
 {
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly InvoiceContext _context = null;
         private readonly IMapper _mapper;
@@ -68,6 +68,6 @@ namespace Exercise_3.Repositorys
             _context.Product.Remove(records);
             await _context.SaveChangesAsync();
             return true;
-        }        
+        }
     }
 }

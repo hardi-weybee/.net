@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Exercise_3.Repositorys
 {
-    public class ProductRateRepository
+    public class ProductRateRepository : IProductRateRepository
     {
         private readonly InvoiceContext _context = null;
         private readonly IMapper _mapper;
@@ -47,7 +47,7 @@ namespace Exercise_3.Repositorys
         public async Task<int> EditProductRate(ProductRateModel model, [FromRoute] int id)
         {
             var a = _context.ProductRate.Where(x => x.productID == model.productID).FirstOrDefault();
-            if(a == null)
+            if (a == null)
             {
                 var records = new ProductRate()
                 {

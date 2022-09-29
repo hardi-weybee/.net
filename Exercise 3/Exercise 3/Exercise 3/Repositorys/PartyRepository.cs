@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Exercise_3.Repositorys
 {
-    public class PartyRepository
+    public class PartyRepository : IPartyRepository
     {
         private readonly InvoiceContext _context = null;
         private readonly IMapper _mapper;
@@ -29,7 +29,7 @@ namespace Exercise_3.Repositorys
         public async Task<int> SaveParty(PartyModel model)
         {
             var a = _context.Party.Where(x => x.PartyName == model.PartyName).FirstOrDefault();
-            if(a == null)
+            if (a == null)
             {
                 var records = new Party()
                 {
@@ -42,7 +42,7 @@ namespace Exercise_3.Repositorys
             return 0;
         }
 
-        public async Task<int> EditParty(PartyModel model, [FromRoute]int id)
+        public async Task<int> EditParty(PartyModel model, [FromRoute] int id)
         {
             var a = _context.Party.Where(x => x.PartyName == model.PartyName).FirstOrDefault();
             if (a == null)
@@ -68,6 +68,6 @@ namespace Exercise_3.Repositorys
             _context.Party.Remove(records);
             await _context.SaveChangesAsync();
             return true;
-        }        
+        }
     }
 }

@@ -34,11 +34,11 @@ namespace Exercise_3
 #if DEBUG
             services.AddRazorPages().AddRazorRuntimeCompilation();
 #endif
-            services.AddScoped<PartyRepository, PartyRepository>();
-            services.AddScoped<ProductRepository, ProductRepository>();
-            services.AddScoped<AssignPartyRepository, AssignPartyRepository>();
-            services.AddScoped<ProductRateRepository, ProductRateRepository>();
-            services.AddScoped<InvoiceRepository, InvoiceRepository>();
+            services.AddScoped<IPartyRepository, PartyRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IAssignPartyRepository, AssignPartyRepository>();
+            services.AddScoped<IProductRateRepository, ProductRateRepository>();
+            services.AddScoped<IInvoiceRepository, InvoiceRepository>();
             services.AddTransient<InvoiceModel>();
             services.AddAutoMapper(typeof(Startup));
 

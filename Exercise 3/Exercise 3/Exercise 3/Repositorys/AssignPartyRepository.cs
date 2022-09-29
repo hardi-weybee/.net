@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Exercise_3.Repositorys
 {
-    public class AssignPartyRepository
+    public class AssignPartyRepository : IAssignPartyRepository
     {
         private readonly InvoiceContext _context = null;
         private readonly IMapper _mapper;
@@ -47,7 +47,7 @@ namespace Exercise_3.Repositorys
         public async Task<int> EditAssignParty(AssignPartyModel model, [FromRoute] int id)
         {
             var a = _context.AssignParty.Where(x => x.partyID == model.partyID && x.productID == model.productID).FirstOrDefault();
-            if(a == null)
+            if (a == null)
             {
                 var records = new AssignParty()
                 {
@@ -59,7 +59,7 @@ namespace Exercise_3.Repositorys
                 await _context.SaveChangesAsync();
                 return 1;
             }
-            return 2;            
+            return 2;
         }
 
         public async Task<bool> DeleteAssignParty([FromRoute] int id)
@@ -71,7 +71,7 @@ namespace Exercise_3.Repositorys
             _context.AssignParty.Remove(records);
             await _context.SaveChangesAsync();
             return true;
-        }       
+        }
 
         // Display unique party for invoice dropdown
         public async Task<List<AssignPartyModel>> UniqueParty()
@@ -82,5 +82,5 @@ namespace Exercise_3.Repositorys
                 Party = assign.Party
             }).Distinct().ToListAsync();
         }
-    } 
+    }
 }

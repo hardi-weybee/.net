@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Exercise_3.Repositorys
 {
-    public class InvoiceRepository
+    public class InvoiceRepository : IInvoiceRepository
     {
         private readonly InvoiceContext _context = null;
         private readonly IMapper _mapper;
@@ -53,7 +53,7 @@ namespace Exercise_3.Repositorys
 
         public async Task<List<InvoiceModel>> DisplayTable(int _partyid)
         {
-            var partyList = await _context.Invoice.Where(x=>x.partyID==_partyid).Select(a => new InvoiceModel()
+            var partyList = await _context.Invoice.Where(x => x.partyID == _partyid).Select(a => new InvoiceModel()
             {
                 ID = a.ID,
                 partyID = a.partyID,
@@ -65,6 +65,6 @@ namespace Exercise_3.Repositorys
                 Total = (a.Quantity * a.CurrentRate),
             }).ToListAsync();
             return _mapper.Map<List<InvoiceModel>>(partyList);
-        }        
+        }
     }
 }
