@@ -111,4 +111,18 @@
             });
         }
     });
-</script> 
+</script>
+
+@if (ViewBag.id > 0)
+{
+    <script>
+        $("#partylist").ready(function () {
+            var partyID = parseInt($(this).val());
+            var partyID = $('#partylist option:selected').val();
+            if (!isNaN(partyID)) {
+                var productlist = $('#productlist');
+                productlist.removeAttr("disabled")
+            }
+        });
+    </script>
+}
