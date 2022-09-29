@@ -12,6 +12,7 @@
         {
             action = "EditAssignParty";
             <h1 class="heading">Update Assign</h1>
+            //ViewBag.disable = true;
         }
         else
         {
@@ -45,20 +46,6 @@
             <div class="line form-group row">
                 <label asp-for="partyID" class="line1 col-sm-2" style="font-size:x-large;"></label>
                 <div class="line2 col-sm-10">
-                    @*@if (ViewBag.Success == 1 && ViewBag.id > 0)
-                    {
-                        <select id="partylist" asp-for="partyID" class="ddl form-control" disabled style="background-color: #fff" asp-items="(await partyRepo.GetAllParty())
-                                                                .Select(x => new SelectListItem() { Text = x.PartyName, Value = x.ID.ToString()})">
-                            <option value="">Please select Party</option>
-                        </select>
-                    }
-                    else
-                    {
-                        <select id="partylist" asp-for="partyID" class="ddl form-control" asp-items="(await partyRepo.GetAllParty())
-                                                                .Select(x => new SelectListItem() { Text = x.PartyName, Value = x.ID.ToString()})">
-                            <option value="">Please select Party</option>
-                        </select>
-                    }*@
                     <select id="partylist" asp-for="partyID" class="form-control" asp-items="(await partyRepo.GetAllParty())
                                                                 .Select(x => new SelectListItem() { Text = x.PartyName, Value = x.ID.ToString()})">
                         <option value="">Please select Party</option>
@@ -70,22 +57,8 @@
             <div class="form-group row">
                 <label asp-for="productID" class="line1 col-sm-2" style="font-size:x-large"></label>
                 <div class="line2 col-sm-10">
-                    @*@if (ViewBag.Success == 1 && ViewBag.id > 0)
-                    {
-                        <select id="productlist" asp-for="productID" class="ddl form-control" disabled style="background-color: #fff" asp-items="(await productRepo.GetAllProduct())
-                                                .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString() })">
-                            <option value="">Please select Product</option>
-                        </select>
-                    }
-                    else
-                    {
-                        <select id="productlist" asp-for="productID" class="ddl form-control" asp-items="(await productRepo.GetAllProduct())
-                                                .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString() })">
-                            <option value="">Please select Product</option>
-                        </select>
-                    }*@
                     <select id="productlist" asp-for="productID" class="form-control" asp-items="(await productRepo.GetAllProduct())
-                                             .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString() })">
+                                             .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString() })" disabled>
                         <option value="">Please select Product</option>
                     </select>
                     <div class="vali"><span asp-validation-for="productID" class="text-danger"></span></div>
@@ -118,6 +91,7 @@
                 var productlist = $('#productlist');
                 productlist.empty();
                 productlist.append($("<option></option>").val('').html('Please wait ...'));
+                productlist.removeAttr("disabled")
 
                 debugger;
                 $.ajax({

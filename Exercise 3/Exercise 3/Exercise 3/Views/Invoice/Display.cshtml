@@ -25,7 +25,7 @@
                 <label asp-for="productID" class="line1 col-sm-2"></label>
                 <div class="line2 col-sm-10">
                     <select id="productlist" asp-for="productID" class="form-control">
-                        <option value="">Please select Product</option>
+                        @*<option value="">Please select Product</option>*@
                     </select>
                     <span asp-validation-for="productID" class="text-danger"></span>
                 </div>
