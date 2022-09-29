@@ -14,10 +14,12 @@ namespace Exercise_3.Models
 
         [Display(Name = "Party")]
         [ForeignKey("Party")]
+        [Required(ErrorMessage ="Please select Party")]
         public int partyID { get; set; }
 
         [Display(Name = "Product")]
         [ForeignKey("Product")]
+        [Required(ErrorMessage = "Please select Product")]
         public int productID { get; set; }
 
         public string PartyName { get; set; }

@@ -49,8 +49,9 @@ namespace Exercise_3.Controllers
             if (ModelState.IsValid)
             {
                 result = await _invoiceRepo.AddInvoice(model, PartyId);
+                return RedirectToAction("Display", new { Pid = PartyId, isSuccess = true, grandTotal = result });
             }
-            return RedirectToAction("Display", new { Pid = PartyId, isSuccess = true, grandTotal = result });
+            return RedirectToAction("Display", new { Pid = PartyId, isSuccess = false, grandTotal = result });
         }
 
         public ViewResult Cancel()

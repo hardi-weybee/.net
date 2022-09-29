@@ -15,18 +15,25 @@
             </thead>
 
             @foreach (var assign in Model)
-                {
-                    <tbody>
-                        <tr>
-                            <th scope="row">@assign.ID</th>
-                            <td>@assign.PartyName</td>
-                            <td>@assign.ProductName</td>
-                            <td>@assign.CurrentRate</td>
-                            <td>@assign.Quantity</td>
-                            <td>@assign.Total</td>
-                        </tr>
-                    </tbody>
-                }
-        </table>        
+            {
+                <tbody>
+                    <tr>
+                        <th scope="row">@assign.ID</th>
+                        <td>@assign.PartyName</td>
+                        <td>@assign.ProductName</td>
+                        <td>@assign.CurrentRate</td>
+                        <td>@assign.Quantity</td>
+                        <td>@assign.Total</td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+
+        <div class="last">
+            <div style="display:flex; justify-content:end;">
+                <label class="ans font-weight-bold">Grand Total</label>
+                <input class="font-weight-bold" style="width: 20%; border:none; font-size:larger;" value="@ViewBag.answer">
+            </div>
+        </div>
     </div>
 </div>
