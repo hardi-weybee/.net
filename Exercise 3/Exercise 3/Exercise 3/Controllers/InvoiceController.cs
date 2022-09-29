@@ -8,9 +8,9 @@ namespace Exercise_3.Controllers
 {
     public class InvoiceController : Controller
     {
-        private readonly InvoiceRepository _invoiceRepo = null;
+        private readonly IInvoiceRepository _invoiceRepo = null;
 
-        public InvoiceController(InvoiceRepository invoiceRepo, InvoiceContext context)
+        public InvoiceController(IInvoiceRepository invoiceRepo, InvoiceContext context)
         {
             _invoiceRepo = invoiceRepo;
         }

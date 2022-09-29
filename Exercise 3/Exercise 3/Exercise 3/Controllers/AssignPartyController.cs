@@ -7,9 +7,9 @@ namespace Exercise_3.Controllers
 {
     public class AssignPartyController : Controller
     {
-        private readonly AssignPartyRepository _assignRepo = null;
+        private readonly IAssignPartyRepository _assignRepo = null;
 
-        public AssignPartyController(AssignPartyRepository assignRepo)
+        public AssignPartyController(IAssignPartyRepository assignRepo)
         {
             _assignRepo = assignRepo;
         }

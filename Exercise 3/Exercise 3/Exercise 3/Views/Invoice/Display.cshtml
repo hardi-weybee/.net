@@ -1,5 +1,5 @@
 ﻿@model InvoiceModel
-@inject Exercise_3.Repositorys.AssignPartyRepository assignRepo
+@inject Exercise_3.Repositorys.IAssignPartyRepository assignRepo
 @inject Exercise_3.Models.InvoiceModel invoiceModel
 @{
     ViewData["Title"] = "Display";
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <div><input type="submit" value="Add Invoice" class="button btn btn-info" onclick="" /></div>
+            <div class="line"><input type="submit" value="Add Invoice" class="button btn btn-info" onclick="" /></div>
 
             @if (ViewBag.show == true)
             {

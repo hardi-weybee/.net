@@ -7,9 +7,9 @@ namespace Exercise_3.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly ProductRepository _productRepo = null;
+        private readonly IProductRepository _productRepo = null;
 
-        public ProductController(ProductRepository productRepo)
+        public ProductController(IProductRepository productRepo)
         {
             _productRepo = productRepo;
         }

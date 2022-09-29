@@ -1,6 +1,6 @@
 ﻿@model AssignPartyModel
-@inject Exercise_3.Repositorys.ProductRepository productRepo
-@inject Exercise_3.Repositorys.PartyRepository partyRepo
+@inject Exercise_3.Repositorys.IProductRepository productRepo
+@inject Exercise_3.Repositorys.IPartyRepository partyRepo
 @{
     ViewData["Title"] = "AddAssignParty";
     string action;
@@ -59,7 +59,7 @@
                             <option value="">Please select Party</option>
                         </select>
                     }*@
-                    <select id="partylist" asp-for="partyID" class="ddl form-control" asp-items="(await partyRepo.GetAllParty())
+                    <select id="partylist" asp-for="partyID" class="form-control" asp-items="(await partyRepo.GetAllParty())
                                                                 .Select(x => new SelectListItem() { Text = x.PartyName, Value = x.ID.ToString()})">
                         <option value="">Please select Party</option>
                     </select>
@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <div class="line form-group row">
+            <div class="form-group row">
                 <label asp-for="productID" class="line1 col-sm-2" style="font-size:x-large"></label>
                 <div class="line2 col-sm-10">
                     @*@if (ViewBag.Success == 1 && ViewBag.id > 0)
@@ -84,7 +84,7 @@
                             <option value="">Please select Product</option>
                         </select>
                     }*@
-                    <select id="productlist" asp-for="productID" class="ddl form-control" asp-items="(await productRepo.GetAllProduct())
+                    <select id="productlist" asp-for="productID" class="form-control" asp-items="(await productRepo.GetAllProduct())
                                              .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString() })">
                         <option value="">Please select Product</option>
                     </select>

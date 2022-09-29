@@ -7,9 +7,9 @@ namespace Exercise_3.Controllers
 {
     public class PartyController : Controller
     {
-        private readonly PartyRepository _partyRepo = null;
+        private readonly IPartyRepository _partyRepo = null;
 
-        public PartyController(PartyRepository partyRepo)
+        public PartyController(IPartyRepository partyRepo)
         {
             _partyRepo = partyRepo;
         }

@@ -1,5 +1,5 @@
 ﻿@model ProductRateModel
-@inject Exercise_3.Repositorys.ProductRepository productRepo
+@inject Exercise_3.Repositorys.IProductRepository productRepo
 @{
     ViewData["Title"] = "AddProductRate";
     string action;
@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-            <div class="line form-group row">
+            <div class="form-group row">
                 <label asp-for="Rate" class="line1 col-sm-2" style="font-size:x-large"></label>
                 <div class="line2 col-sm-10">
                     <input asp-for="Rate" class="form-control" />
@@ -62,7 +62,7 @@
                 </div>
             </div>
 
-            <div class="line form-group row">
+            <div class="form-group row">
                 <label asp-for="DateOfRate" class="line1 col-sm-2" style="font-size:x-large"></label>
                 <div class="line2 col-sm-10">
                     <input asp-for="DateOfRate" class="form-control" value="@ViewBag.rdate" />
