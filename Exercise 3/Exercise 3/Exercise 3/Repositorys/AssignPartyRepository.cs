@@ -3,7 +3,6 @@ using Exercise_3.Data;
 using Exercise_3.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,6 +20,18 @@ namespace Exercise_3.Repositorys
             _mapper = mapper;
         }
 
+        public List<AssignPartyModel> GetAllAssignParty()
+        {
+            var records = _context.AssignParty.Include(x => x.Party).Include(x => x.Product).ToList();
+            return _mapper.Map<List<AssignPartyModel>>(records);
+        }
+
+        public async Task<List<ProductModel>> getProductsNotAssigned(int partyid)
+        {
+            var store = await _context.Product.Except(_context.AssignParty.Where(x => x.partyID == partyid).Include(x => x.Product).Select(x => x.Product)).ToListAsync();
+            return _mapper.Map<List<ProductModel>>(store);
+        }
+
         public async Task<int> SaveAssignParty(AssignPartyModel model)
         {
             var records = new AssignParty()
@@ -28,7 +39,6 @@ namespace Exercise_3.Repositorys
                 partyID = model.partyID,
                 productID = model.productID
             };
-
             await _context.AssignParty.AddAsync(records);
             await _context.SaveChangesAsync();
             return records.ID;
@@ -45,13 +55,11 @@ namespace Exercise_3.Repositorys
                     partyID = model.partyID,
                     productID = model.productID
                 };
-
                 _context.AssignParty.Update(records);
                 await _context.SaveChangesAsync();
                 return 1;
             }
-            return 2;
-            
+            return 2;            
         }
 
         public async Task<bool> DeleteAssignParty([FromRoute] int id)
@@ -60,24 +68,12 @@ namespace Exercise_3.Repositorys
             {
                 ID = id
             };
-
             _context.AssignParty.Remove(records);
             await _context.SaveChangesAsync();
             return true;
-        }
+        }       
 
-        public List<AssignPartyModel> GetAllAssignParty()
-        {
-            var records = _context.AssignParty.Include(x => x.Party).Include(x => x.Product).ToList();
-            return _mapper.Map<List<AssignPartyModel>>(records);
-        }
-
-        public async Task<List<ProductModel>> getProductsNotAssigned(int partyid)
-        {
-            var store = await _context.Product.Except(_context.AssignParty.Where(x => x.partyID == partyid).Include(x => x.Product).Select(x => x.Product)).ToListAsync();
-            return _mapper.Map<List<ProductModel>>(store);
-        }
-
+        // Display unique party for invoice dropdown
         public async Task<List<AssignPartyModel>> UniqueParty()
         {
             return await _context.AssignParty.Select(assign => new AssignPartyModel()

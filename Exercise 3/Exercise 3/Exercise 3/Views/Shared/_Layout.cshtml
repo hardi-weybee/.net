@@ -19,21 +19,11 @@
                 </button>
                 <div class="list navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="links nav-link" asp-area="" asp-controller="Party" asp-action="GetAllParty">Party</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="links nav-link" asp-area="" asp-controller="Product" asp-action="GetAllProduct">Product</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="links nav-link" asp-area="" asp-controller="AssignParty" asp-action="GetAllAssignParty">Assign Party</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="links nav-link" asp-area="" asp-controller="ProductRate" asp-action="GetAllProductRate">Product Rate</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="links nav-link" asp-area="" asp-controller="Invoice" asp-action="Display">Invoice</a>
-                        </li>
+                        <li class="nav-item"><a class="links nav-link" asp-controller="Party" asp-action="GetAllParty">Party</a></li>
+                        <li class="nav-item"><a class="links nav-link" asp-controller="Product" asp-action="GetAllProduct">Product</a></li>
+                        <li class="nav-item"><a class="links nav-link" asp-controller="AssignParty" asp-action="GetAllAssignParty">Assign Party</a></li>
+                        <li class="nav-item"><a class="links nav-link" asp-controller="ProductRate" asp-action="GetAllProductRate">Product Rate</a></li>
+                        <li class="nav-item"><a class="links nav-link" asp-controller="Invoice" asp-action="Display">Invoice</a></li>
                     </ul>
                 </div>
             </div>
@@ -46,7 +36,6 @@
     </div>
 
     <script src="~/lib/jquery/jquery.js"></script>
-
     @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
     @RenderSection("Scripts", required: false)
 </body>

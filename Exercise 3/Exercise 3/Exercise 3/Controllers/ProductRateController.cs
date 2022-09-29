@@ -2,8 +2,6 @@
 using Exercise_3.Repositorys;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Exercise_3.Controllers
@@ -16,11 +14,14 @@ namespace Exercise_3.Controllers
         {
             _rateRepo = rateRepo;
         }
+
+
         public ViewResult GetAllProductRate()
         {
             var data = _rateRepo.GetAllProductRate();
             return View(data);
         }
+
 
         public ViewResult AddProductRate(int isSuccess = 0)
         {
@@ -43,13 +44,13 @@ namespace Exercise_3.Controllers
             }
             return View("AddProductRate");
         }
+
         
         [HttpGet("EditProductRate/{id}/{proname}/{rate}/{rdate}")]
         public ViewResult EditProductRate([FromRoute] int id, [FromRoute] int proname, [FromRoute] int rate, [FromRoute] DateTime rdate, int isSuccess = 0)
         {
             ViewBag.Success = isSuccess;
             ViewBag.ID = id;
-
             ProductRateModel rateModel = new ProductRateModel()
             {
                 productID = proname,
@@ -74,10 +75,10 @@ namespace Exercise_3.Controllers
             return View("AddProductRate");
         }
 
+
         public async Task<IActionResult> DeleteProductRate([FromRoute] int id)
         {
             bool isdeleted = await _rateRepo.DeleteProductRate(id);
-
             if (isdeleted)
             {
                 return RedirectToAction("GetAllProductRate");

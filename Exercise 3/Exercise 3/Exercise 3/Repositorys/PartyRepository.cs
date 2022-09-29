@@ -3,7 +3,6 @@ using Exercise_3.Data;
 using Exercise_3.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,6 +20,12 @@ namespace Exercise_3.Repositorys
             _mapper = mapper;
         }
 
+        public async Task<List<PartyModel>> GetAllParty()
+        {
+            var partyList = await _context.Party.ToListAsync();
+            return _mapper.Map<List<PartyModel>>(partyList);
+        }
+
         public async Task<int> SaveParty(PartyModel model)
         {
             var a = _context.Party.Where(x => x.PartyName == model.PartyName).FirstOrDefault();
@@ -35,7 +40,6 @@ namespace Exercise_3.Repositorys
                 return records.ID;
             }
             return 0;
-
         }
 
         public async Task<int> EditParty(PartyModel model, [FromRoute]int id)
@@ -48,7 +52,6 @@ namespace Exercise_3.Repositorys
                     ID = id,
                     PartyName = model.PartyName
                 };
-
                 _context.Party.Update(records);
                 await _context.SaveChangesAsync();
                 return 1;
@@ -62,16 +65,9 @@ namespace Exercise_3.Repositorys
             {
                 ID = id
             };
-
             _context.Party.Remove(records);
             await _context.SaveChangesAsync();
             return true;
-        }
-
-        public async Task<List<PartyModel>> GetAllParty()
-        {
-            var partyList = await _context.Party.ToListAsync();            
-            return _mapper.Map<List<PartyModel>>(partyList);
-        }
+        }        
     }
 }

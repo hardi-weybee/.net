@@ -3,7 +3,6 @@ using Exercise_3.Data;
 using Exercise_3.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,6 +20,12 @@ namespace Exercise_3.Repositorys
             _mapper = mapper;
         }
 
+        public async Task<List<ProductModel>> GetAllProduct()
+        {
+            var productList = await _context.Product.ToListAsync();
+            return _mapper.Map<List<ProductModel>>(productList);
+        }
+
         public async Task<int> SaveProduct(ProductModel model)
         {
             var a = _context.Product.Where(x => x.ProductName == model.ProductName).FirstOrDefault();
@@ -30,7 +35,6 @@ namespace Exercise_3.Repositorys
                 {
                     ProductName = model.ProductName
                 };
-
                 await _context.Product.AddAsync(records);
                 await _context.SaveChangesAsync();
                 return records.ID;
@@ -48,7 +52,6 @@ namespace Exercise_3.Repositorys
                     ID = id,
                     ProductName = model.ProductName
                 };
-
                 _context.Product.Update(records);
                 await _context.SaveChangesAsync();
                 return 1;
@@ -62,16 +65,9 @@ namespace Exercise_3.Repositorys
             {
                 ID = id
             };
-
             _context.Product.Remove(records);
             await _context.SaveChangesAsync();
             return true;
-        }
-
-        public async Task<List<ProductModel>> GetAllProduct()
-        {
-            var productList = await _context.Product.ToListAsync();
-            return _mapper.Map<List<ProductModel>>(productList);
-        }
+        }        
     }
 }

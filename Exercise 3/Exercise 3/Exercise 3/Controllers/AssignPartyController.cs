@@ -1,9 +1,6 @@
 ﻿using Exercise_3.Models;
 using Exercise_3.Repositorys;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Exercise_3.Controllers
@@ -17,11 +14,13 @@ namespace Exercise_3.Controllers
             _assignRepo = assignRepo;
         }
         
+
         public ViewResult GetAllAssignParty()
         {
             var data = _assignRepo.GetAllAssignParty();
             return View(data);
         }
+
 
         public ViewResult AddAssignParty(int isSuccess = 0)
         {
@@ -45,12 +44,12 @@ namespace Exercise_3.Controllers
             return View("AddAssignParty");
         }
 
+
         [HttpGet("EditAssignParty/{id}/{partyname}/{proname}")]
         public ViewResult EditAssignParty([FromRoute] int id, [FromRoute] int partyname, [FromRoute] int proname, int isSuccess = 0)
         {
             ViewBag.Success = isSuccess;
             ViewBag.ID = id;
-
             AssignPartyModel assignModel = new AssignPartyModel()
             {
                 partyID = partyname,
@@ -74,10 +73,10 @@ namespace Exercise_3.Controllers
             return View("AddAssignParty");
         }
 
+
         public async Task<IActionResult> DeleteAssignParty([FromRoute] int id)
         {
             bool isdeleted = await _assignRepo.DeleteAssignParty(id);
-
             if (isdeleted)
             {
                 return RedirectToAction("GetAllAssignParty");

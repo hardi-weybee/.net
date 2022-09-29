@@ -88,6 +88,10 @@ body {
     font-size: larger;
 }
 
+.lastbtn {
+    margin: 10px 10px;
+}
+
 .links {
     color: #cfe2ff;
 }

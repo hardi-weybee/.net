@@ -1,11 +1,6 @@
 ﻿using Exercise_3.Models;
 using Exercise_3.Repositorys;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Exercise_3.Controllers
@@ -18,11 +13,14 @@ namespace Exercise_3.Controllers
         {
             _partyRepo = partyRepo;
         }
+
+
         public async Task<ViewResult> GetAllParty()
         {
             var data = await _partyRepo.GetAllParty();
             return View(data);
         }
+
 
         public ViewResult AddParty(int isSuccess = 0)
         {
@@ -45,6 +43,7 @@ namespace Exercise_3.Controllers
             }
             return View("AddParty");
         }
+
 
         [HttpGet("EditParty/{id}/{name}")]
         public ViewResult EditParty([FromRoute]int id, [FromRoute] string name, int isSuccess = 0)
@@ -78,7 +77,6 @@ namespace Exercise_3.Controllers
         public async Task<IActionResult> DeleteParty([FromRoute] int id)
         {
             bool isdeleted =  await _partyRepo.DeleteParty(id);
-
             if (isdeleted)
             {
                 return RedirectToAction("GetAllParty");

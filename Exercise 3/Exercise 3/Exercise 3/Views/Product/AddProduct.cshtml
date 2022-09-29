@@ -1,6 +1,5 @@
 ﻿@model ProductModel
 @{
-    var model = Model;
     ViewData["Title"] = "Add Product";
     string action;
 }
@@ -11,7 +10,6 @@
         {
             action = "EditProduct";
             <label class="heading">Update Product</label>
-
         }
         else
         {
@@ -53,23 +51,20 @@
                     {
                         <input asp-for="ProductName" class="form-control" />
                     }
-                    <div class="vali">
-                        <span asp-validation-for="ProductName" class="text-danger"></span>
-                    </div>
-                    </div>
+                    <div class="vali"><span asp-validation-for="ProductName" class="text-danger"></span></div>
                 </div>
+            </div>
             <div>
                 @if (action == "AddProduct")
                 {
-                    <input type="submit" value="Save" class="button btn btn-info" style="margin:10px 10px;" />
+                    <input type="submit" value="Save" class="lastbtn button btn btn-info" />
                 }
                 @if (action == "EditProduct")
                 {
-                    <input type="submit" value="Update" class="button btn btn-info" style="margin:10px 10px;" />
+                    <input type="submit" value="Update" class="lastbtn button btn btn-info" />
                 }
-                <input asp-controller="Product" asp-action="GetAllProduct" type="submit" value="Cancel" class="button btn btn-info" style="margin:10px 10px;" />
+                <input asp-controller="Product" asp-action="GetAllProduct" type="submit" value="Cancel" class="lastbtn button btn btn-info" />
             </div>
         </form>
-
     </div>
 </section>

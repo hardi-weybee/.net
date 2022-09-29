@@ -2,11 +2,6 @@
 using Exercise_3.Models;
 using Exercise_3.Repositorys;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Exercise_3.Controllers
@@ -19,17 +14,6 @@ namespace Exercise_3.Controllers
         {
             _invoiceRepo = invoiceRepo;
         }
-        //[HttpGet]
-        //public  IActionResult Display()
-        //{
-        //    return View();
-        //}
-
-        //public ViewResult Cancel()
-        //{
-        //    return View(nameof(Display));
-        //}
-
 
         [HttpGet]
         public async Task<JsonResult> getProductByParty(int partyID)

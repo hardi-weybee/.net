@@ -41,7 +41,6 @@
         }
 
         <form method="post" asp-controller="ProductRate" asp-action="@action">
-
             <div class="line form-group row">
                 <label asp-for="productID" class="line1 col-sm-2" style="font-size:x-large"></label>
                 <div class="line2 col-sm-10">
@@ -49,9 +48,7 @@
                                                                 .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString()})">
                         <option value="">Please select Product</option>
                     </select>
-                    <div class="vali">
-                        <span asp-validation-for="productID" class="text-danger"></span>
-                    </div>
+                    <div class="vali"><span asp-validation-for="productID" class="text-danger"></span></div>
                 </div>
             </div>
 
@@ -78,17 +75,14 @@
             <div>
                 @if (action == "AddProductRate")
                 {
-                    <input type="submit" value="Save" class="button btn btn-info" style="margin:10px 10px;" />
+                    <input type="submit" value="Save" class="lastbtn button btn btn-info" />
                 }
                 @if (action == "EditProductRate")
                 {
-                    <input type="submit" value="Update" class="button btn btn-info" style="margin:10px 10px;" />
+                    <input type="submit" value="Update" class="lastbtn button btn btn-info" />
                 }
-                <input asp-controller="ProductRate" asp-action="GetAllProductRate" type="submit" value="Cancel" class="button btn btn-info" style="margin:10px 10px;" />
+                <input asp-controller="ProductRate" asp-action="GetAllProductRate" type="submit" value="Cancel" class="lastbtn button btn btn-info" />
             </div>
         </form>
-
     </div>
 </section>
-
-

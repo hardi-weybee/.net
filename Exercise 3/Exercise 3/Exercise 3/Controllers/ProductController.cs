@@ -1,9 +1,6 @@
 ﻿using Exercise_3.Models;
 using Exercise_3.Repositorys;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Exercise_3.Controllers
@@ -16,11 +13,14 @@ namespace Exercise_3.Controllers
         {
             _productRepo = productRepo;
         }
+
+
         public async Task<ViewResult> GetAllProduct()
         {
             var data = await _productRepo.GetAllProduct();
             return View(data);
         }
+
 
         [HttpGet]
         public ViewResult AddProduct(int isSuccess = 0)
@@ -44,6 +44,7 @@ namespace Exercise_3.Controllers
             }
             return View("AddProduct");
         }
+
 
         [HttpGet("EditProduct/{id}/{name}")]
         public ViewResult EditProduct([FromRoute]int id, [FromRoute] string name, int isSuccess = 0)
@@ -73,10 +74,10 @@ namespace Exercise_3.Controllers
             return View("AddProduct");
         }
 
+
         public async Task<IActionResult> DeleteProduct([FromRoute] int id)
         {
             bool isdeleted = await _productRepo.DeleteProduct(id);
-
             if (isdeleted)
             {
                 return RedirectToAction("GetAllProduct");

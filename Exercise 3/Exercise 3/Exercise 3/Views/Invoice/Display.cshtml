@@ -4,14 +4,12 @@
 @{
     ViewData["Title"] = "Display";
 }
-@*@using Exercise_3.Models*@
 
 <section class="jumbotron text-center">
     <div class="container" style="margin-top:30px;">
         <h1 class="heading">Invoice Add</h1>
 
         <form method="post" asp-controller="Invoice" asp-action="Display">
-
             <div class="line form-group row">
                 <label asp-for="partyID" class="line1 col-sm-2"></label>
                 <div class="line2 col-sm-10">
@@ -49,18 +47,14 @@
                 </div>
             </div>
 
-            <div>
-                <input type="submit" value="Add Invoice" class="button btn btn-info" onclick="" />
-            </div>
+            <div><input type="submit" value="Add Invoice" class="button btn btn-info" onclick="" /></div>
 
             @if (ViewBag.show == true)
             {
-
                 <div class="form-group row">
                     <partial name="_tableShow" model="(List<InvoiceModel>)ViewBag.ShowTable" />
                 </div>
             }
-
 
             <div class="last">
                 <div style="display:flex; justify-content:end;">
@@ -69,29 +63,24 @@
                 </div>
                 <div style="margin:20px 0;">
                     <input asp-controller="Invoice" asp-action="Cancel" type="submit" value="Cancel" class="button btn" />
-
                 </div>
             </div>
-
         </form>
     </div>
 </section>
+
 <script src="~/lib/jquery/jquery.js"></script>
 
 <script>
-
     $(document).ready(function () {
         function partyID() {
             $.ajax({
                 url: "https://localhost:44388/Invoice/Display",
                 type: 'POST',
-                //dataType: 'json',
                 data: { PartyId: PartyId },
-
             })
-
         }
-    })
+    });
 
     $("#partylist").change(function () {
         var partyID = parseInt($(this).val());
@@ -123,29 +112,19 @@
         }
     });
 
-
     $("#productlist").change(function () {
         var productID = parseInt($(this).val());
         var productID = $('#productlist option:selected').val();
         if (!isNaN(productID)) {
             var rate = $('#rate');
             rate.empty();
-            //rate.append($("<option></option>").val('').html('Please wait ...'));
-
-           // debugger;
             $.ajax({
                 url: 'https://localhost:44388/Invoice/getRateByProduct',
                 type: 'GET',
                 //dataType: 'json',
                 data: { productID: productID },
                 success: function (d) {
-                    //debugger;
-                    //rate.empty(); // Clear the please wait
-                    //rate.append($("<option></option>").val('').html(''));
-                  
-                      
-                        rate.val(d)
-                
+                    rate.val(d)                
                 },
                 error: function () {
                     alert('Error!');
@@ -153,17 +132,4 @@
             });
         }
     });
-
-
-    //$(document).ready(function () {
-    //    function id() {
-    //        $.ajax({
-    //            url: 'https://localhost:44388/Invoice/Display',
-    //            type: 'POST',
-    //            //dataType: 'json',
-    //            data: { id: id },
-
-    //        });
-    //    }
-    //});
 </script>

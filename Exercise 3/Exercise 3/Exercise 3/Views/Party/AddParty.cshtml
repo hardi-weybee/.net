@@ -5,8 +5,7 @@
     string action;
 }
 
-<section class="jumbotron text-center">
-    
+<section class="jumbotron text-center">    
     <div class="container">
         @if (ViewBag.id > 0)
         {
@@ -53,21 +52,19 @@
                     {
                         <input asp-for="PartyName" class="form-control" />
                     }
-                    <div class="vali">
-                        <span asp-validation-for="PartyName" class="text-danger"></span>
-                    </div>
+                    <div class="vali"><span asp-validation-for="PartyName" class="text-danger"></span></div>
                 </div>
             </div>
             <div>
                 @if (action == "AddParty")
                 {
-                    <input type="submit" value="Save" class="button btn btn-info" style="margin:10px 10px;" />
+                    <input type="submit" value="Save" class="lastbtn button btn btn-info" />
                 }
                 @if (action == "EditParty")
                 {
-                    <input type="submit" value="Update" class="button btn btn-info" style="margin:10px 10px;" />
+                    <input type="submit" value="Update" class="lastbtn button btn btn-info" />
                 }
-                <input asp-controller="Party" asp-action="GetAllParty" type="submit" value="Cancel" class="button btn btn-info" style="margin:10px 10px;" />
+                <input asp-controller="Party" asp-action="GetAllParty" type="submit" value="Cancel" class="lastbtn button btn btn-info" />
             </div>
         </form>  
     </div>

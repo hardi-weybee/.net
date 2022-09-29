@@ -3,7 +3,6 @@ using Exercise_3.Data;
 using Exercise_3.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,6 +19,7 @@ namespace Exercise_3.Repositorys
             _context = context;
             _mapper = mapper;
         }
+
         public List<ProductRateModel> GetAllProductRate()
         {
             var records = _context.ProductRate.Include(x => x.Product).ToList();
@@ -37,7 +37,6 @@ namespace Exercise_3.Repositorys
                     Rate = model.Rate,
                     DateOfRate = model.DateOfRate
                 };
-
                 await _context.ProductRate.AddAsync(records);
                 await _context.SaveChangesAsync();
                 return records.ID;
@@ -57,7 +56,6 @@ namespace Exercise_3.Repositorys
                     Rate = model.Rate,
                     DateOfRate = model.DateOfRate
                 };
-
                 _context.ProductRate.Update(records);
                 await _context.SaveChangesAsync();
                 return 1;
@@ -71,7 +69,6 @@ namespace Exercise_3.Repositorys
             {
                 ID = id
             };
-
             _context.ProductRate.Remove(records);
             await _context.SaveChangesAsync();
             return true;
