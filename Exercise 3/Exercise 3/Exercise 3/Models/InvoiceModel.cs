@@ -20,12 +20,12 @@ namespace Exercise_3.Models
         [Required(ErrorMessage = "Please Select Product")]
         public int productID { get; set; }
 
-        //[Required]
+        [Required(ErrorMessage = "Please Enter Rate")]
         [Display(Name = "Current Rate")]
         [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than 0")]
         public int CurrentRate { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Please Enter Quantity")]
         [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than 0")]
         public int Quantity { get; set; }
 

@@ -4,6 +4,7 @@ using Exercise_3.Repositorys;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -73,6 +74,16 @@ namespace Exercise_3
 
             app.UseAuthorization();
             app.UseCors();
+
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path == "/")
+                {
+                    context.Response.Redirect("/Party/GetAllParty", true);
+                    return;
+                }
+                await next();
+            });
 
             app.UseEndpoints(endpoints =>
             {

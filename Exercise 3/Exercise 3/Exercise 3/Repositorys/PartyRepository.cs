@@ -3,6 +3,7 @@ using Exercise_3.Data;
 using Exercise_3.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,11 +21,13 @@ namespace Exercise_3.Repositorys
             _mapper = mapper;
         }
 
+
         public async Task<List<PartyModel>> GetAllParty()
-        {
+        {         
             var partyList = await _context.Party.ToListAsync();
             return _mapper.Map<List<PartyModel>>(partyList);
         }
+
 
         public async Task<int> SaveParty(PartyModel model)
         {

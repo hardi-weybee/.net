@@ -13,13 +13,13 @@ namespace Exercise_3.Models
         public int ID { get; set; }
 
         [Display(Name ="Product")]
-        //[ForeignKey("Product")]
+        [Required(ErrorMessage = "Please select Product")]
         public int productID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please Enter Rate")]
         public int Rate { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Please select Date")]
         [Display(Name = "Date")]
         public DateTime DateOfRate { get; set; }
 

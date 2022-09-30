@@ -14,7 +14,7 @@ namespace Exercise_3.Controllers
             _partyRepo = partyRepo;
         }
 
-
+        
         public async Task<ViewResult> GetAllParty()
         {
             var data = await _partyRepo.GetAllParty();

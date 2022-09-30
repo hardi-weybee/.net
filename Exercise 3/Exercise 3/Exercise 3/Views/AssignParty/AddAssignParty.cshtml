@@ -90,7 +90,7 @@
             var productlist = $('#productlist');
             productlist.removeAttr("disabled")
 
-            debugger;
+            //debugger;
             $.ajax({
                 url: 'https://localhost:44388/AssignParty/getProductsNotAssigned',
                 type: 'GET',
@@ -98,7 +98,7 @@
                 data: { partyID: partyID },
 
                 success: function (d) {
-                    debugger;
+                    //debugger;
                     productlist.empty(); // Clear the please wait
                     productlist.append($("<option></option>").val('').html('Please select Product'));
                     $.each(d.value, function (i, product) {
