@@ -44,14 +44,7 @@
             <div class="line form-group row">
                 <label asp-for="PartyName" class="line1 col-sm-2" style="font-size:x-large"></label>
                 <div class="line2 col-sm-10">
-                    @if(ViewBag.Success == 1 && ViewBag.id > 0)
-                    {
-                        <input asp-for="PartyName" class="form-control" disabled value="" style="background-color: #fff"/>
-                    }
-                    else
-                    {
-                        <input asp-for="PartyName" class="form-control" />
-                    }
+                    <input asp-for="PartyName" class="form-control" value="@ViewBag.PartyName" />
                     <div class="vali"><span asp-validation-for="PartyName" class="text-danger"></span></div>
                 </div>
             </div>

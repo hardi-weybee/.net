@@ -51,6 +51,7 @@ namespace Exercise_3.Controllers
         {
             ViewBag.Success = isSuccess;
             ViewBag.id = id;
+            ViewBag.ProductName = name;
             ProductModel productModel = new ProductModel()
             {
                 ID = id,
@@ -67,7 +68,7 @@ namespace Exercise_3.Controllers
                 var suc = await _productRepo.EditProduct(model, id);
                 if (id > 0)
                 {
-                    return RedirectToAction(nameof(EditProduct), new { isSuccess = suc, ProductId = id });
+                    return RedirectToAction(nameof(EditProduct), new { isSuccess = suc, ProductId = id, name=model.ProductName });
                 }
                 return RedirectToAction(nameof(EditProduct), new { isSuccess = 2 });
             }

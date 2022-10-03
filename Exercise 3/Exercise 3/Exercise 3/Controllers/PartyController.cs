@@ -50,6 +50,7 @@ namespace Exercise_3.Controllers
         {
             ViewBag.Success = isSuccess;
             ViewBag.id = id;
+            ViewBag.PartyName = name;
             PartyModel partyModel = new PartyModel()
             {
                 ID = id,
@@ -66,7 +67,7 @@ namespace Exercise_3.Controllers
                 var suc = await _partyRepo.EditParty(model, id);
                 if (id > 0)
                 {
-                    return RedirectToAction(nameof(EditParty) , new { isSuccess = suc, PartyId = id });
+                    return RedirectToAction(nameof(EditParty) , new { isSuccess = suc, PartyId = id, name=model.PartyName });
                 }
                 return RedirectToAction(nameof(EditParty), new { isSuccess = 2 });
             }
@@ -79,7 +80,7 @@ namespace Exercise_3.Controllers
             bool isdeleted =  await _partyRepo.DeleteParty(id);
             if (isdeleted)
             {
-                return RedirectToAction("GetAllParty");
+                return RedirectToAction(nameof(GetAllParty));
             }
             return null;
         }

@@ -425,3 +425,5 @@ D:\.net\.net\Exercise 3\Exercise 3\Exercise 3\obj\Debug\netcoreapp3.1\Razor\View
 D:\.net\.net\Exercise 3\Exercise 3\Exercise 3\obj\Debug\netcoreapp3.1\Razor\Views\Invoice\Display.cshtml.g.cs
 D:\.net\.net\Exercise 3\Exercise 3\Exercise 3\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_tableShow.cshtml.g.cs
 D:\.net\.net\Exercise 3\Exercise 3\Exercise 3\obj\Debug\netcoreapp3.1\Exercise 3.csproj.AssemblyReference.cache
+D:\.net\.net\Exercise 3\Exercise 3\Exercise 3\bin\Debug\netcoreapp3.1\PagedList.dll
+D:\.net\.net\Exercise 3\Exercise 3\Exercise 3\bin\Debug\netcoreapp3.1\PagedList.Mvc.dll

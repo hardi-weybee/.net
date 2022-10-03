@@ -46,7 +46,7 @@ namespace Exercise_3.Repositorys
 
         public async Task<int> EditProductRate(ProductRateModel model, [FromRoute] int id)
         {
-            var a = _context.ProductRate.Where(x => x.productID == model.productID).FirstOrDefault();
+            var a = _context.ProductRate.Where(x => x.productID == model.productID && x.Rate == model.Rate).FirstOrDefault();
             if (a == null)
             {
                 var records = new ProductRate()
