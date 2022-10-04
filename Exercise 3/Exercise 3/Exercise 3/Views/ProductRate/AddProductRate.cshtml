@@ -63,10 +63,8 @@
             <div class="form-group row">
                 <label asp-for="DateOfRate" class="line1 col-sm-2" style="font-size:x-large"></label>
                 <div class="line2 col-sm-10">
-                    <input asp-for="DateOfRate" class="form-control" value="@ViewBag.rdate" />
-                    <div class="vali">
-                        <span asp-validation-for="DateOfRate" class="text-danger"></span>
-                    </div>
+                    <input asp-for="DateOfRate" type="date" class="form-control" value="@ViewBag.DateOfRate" />
+                    <div class="vali"><span asp-validation-for="DateOfRate" class="text-danger"></span></div>
                 </div>
             </div>
 

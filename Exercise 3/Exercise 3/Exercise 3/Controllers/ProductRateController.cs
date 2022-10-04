@@ -49,6 +49,7 @@ namespace Exercise_3.Controllers
         [HttpGet("EditProductRate/{id}/{proname}/{rate}/{rdate}")]
         public ViewResult EditProductRate([FromRoute] int id, [FromRoute] int proname, [FromRoute] int rate, [FromRoute] DateTime rdate, int isSuccess = 0)
         {
+            ViewBag.DateOfRate = rdate.ToString("yyyy-MM-dd");
             ViewBag.Success = isSuccess;
             ViewBag.ID = id;
             ProductRateModel rateModel = new ProductRateModel()

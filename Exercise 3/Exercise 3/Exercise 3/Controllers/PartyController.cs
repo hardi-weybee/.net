@@ -74,7 +74,7 @@ namespace Exercise_3.Controllers
             return View("AddParty");
         }
 
-
+        
         public async Task<IActionResult> DeleteParty([FromRoute] int id)
         {
             bool isdeleted =  await _partyRepo.DeleteParty(id);

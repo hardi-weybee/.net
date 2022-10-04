@@ -29,7 +29,7 @@
                         <td>
                             <a data-value="@party.ID" asp-controller="Party" asp-action="EditParty" asp-route-Id="@party.ID" asp-route-name="@party.PartyName">
                                 <i class="editicon bi bi-pencil-square" title="Edit"></i></a>
-                            <a data-value="@party.ID" asp-controller="Party" asp-action="DeleteParty" asp-route-Id="@party.ID" style="margin-left:25px">
+                            <a data-value="@party.ID" onclick="return confirm('Are You Sure You want to delete @party.PartyName.. All Products assigned to @party.PartyName will also be deleted')" asp-controller="Party" asp-action="DeleteParty" asp-route-Id="@party.ID" style="margin-left:25px">
                                 <i class="deleteicon bi bi-trash" title="Delete"></i></a>
                         </td>
                     </tr>

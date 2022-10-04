@@ -31,7 +31,7 @@
                         <td>
                             <a data-value="@assign.ID" asp-controller="AssignParty" asp-action="EditAssignParty" asp-route-Id="@assign.ID" asp-route-partyname="@assign.partyID" asp-route-productID="@assign.productID">
                                 <i class="editicon bi bi-pencil-square" title="Edit"></i></a>
-                            <a data-value="@assign.ID" asp-controller="AssignParty" asp-action="DeleteAssignParty" asp-route-Id="@assign.ID" style="margin-left:25px">
+                            <a data-value="@assign.ID" onclick="return confirm('Are You Sure You want to delete the assigned record @assign.Party.PartyName to @assign.Product.ProductName')" asp-controller="AssignParty" asp-action="DeleteAssignParty" asp-route-Id="@assign.ID" style="margin-left:25px">
                                 <i class="deleteicon bi bi-trash" title="Delete"></i></a>
                         </td>
                     </tr>
