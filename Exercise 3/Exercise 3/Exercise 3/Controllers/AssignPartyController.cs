@@ -45,8 +45,8 @@ namespace Exercise_3.Controllers
         }
 
 
-        [HttpGet("EditAssignParty/{id}/{partyname}/{productID}")]
-        public ViewResult EditAssignParty([FromRoute] int id, [FromRoute] int partyname, [FromRoute] int productID, int isSuccess = 0)
+        [HttpGet("EditAssignParty/{id}")]
+        public ViewResult EditAssignParty([FromRoute] int id, int partyname, int productID, int isSuccess = 0)
         {
             ViewBag.Success = isSuccess;
             ViewBag.ID = id;
@@ -58,7 +58,7 @@ namespace Exercise_3.Controllers
             return View("AddAssignParty", assignModel);
         }
 
-        [HttpPost("EditAssignParty/{id}/{partyname}/{productID}")]
+        [HttpPost("EditAssignParty/{id}")]
         public async Task<IActionResult> EditAssignParty(AssignPartyModel model, [FromRoute] int id)
         {
             if (ModelState.IsValid)

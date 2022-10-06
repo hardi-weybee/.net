@@ -46,8 +46,8 @@ namespace Exercise_3.Controllers
         }
 
 
-        [HttpGet("EditProduct/{id}/{name}")]
-        public ViewResult EditProduct([FromRoute]int id, [FromRoute] string name, int isSuccess = 0)
+        [HttpGet("EditProduct/{id}")]
+        public ViewResult EditProduct([FromRoute]int id, string name, int isSuccess = 0)
         {
             ViewBag.Success = isSuccess;
             ViewBag.id = id;
@@ -60,7 +60,7 @@ namespace Exercise_3.Controllers
             return View("AddProduct", productModel);
         }
 
-        [HttpPost("EditProduct/{id}/{name}")]
+        [HttpPost("EditProduct/{id}")]
         public async Task<IActionResult> EditProduct(ProductModel model, [FromRoute] int id)
         {
             if (ModelState.IsValid)

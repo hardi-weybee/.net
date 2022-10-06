@@ -31,7 +31,7 @@
                         <td>@rate.Rate</td>
                         <td>@rate.DateOfRate.ToShortDateString()</td>
                         <td>
-                            <a data-value="@rate.ID" asp-controller="ProductRate" asp-action="EditProductRate" asp-route-Id="@rate.ID" asp-route-proname="@rate.productID" asp-route-rate="@rate.Rate" asp-route-rdate="@rate.DateOfRate.ToString("yyyy-MM-dd")">
+                            <a data-value="@rate.ID" asp-controller="ProductRate" asp-action="EditProductRate" asp-route-Id="@rate.ID" asp-route-productname="@rate.productID" asp-route-rate="@rate.Rate" asp-route-rdate="@rate.DateOfRate.ToString("yyyy-MM-dd")">
                                 <i class="editicon bi bi-pencil-square" title="Edit"></i></a>
                             <a data-value="@rate.ID" onclick="return confirm('Are You Sure You want to delete the record of @rate.Product.ProductName')" asp-controller="ProductRate" asp-action="DeleteProductRate" asp-route-Id="@rate.ID" style="margin-left:25px">
                                 <i class="deleteicon bi bi-trash" title="Delete"></i></a>

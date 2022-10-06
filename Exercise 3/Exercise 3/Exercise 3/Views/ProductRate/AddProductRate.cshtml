@@ -44,10 +44,24 @@
             <div class="line form-group row">
                 <label asp-for="productID" class="line1 col-sm-2" style="font-size:x-large"></label>
                 <div class="line2 col-sm-10">
-                    <select asp-for="productID" class="form-control" asp-items="(await productRepo.GetAllProduct())
+                    @if (action == "EditProductRate")
+                    {
+                        <select asp-for="productID" class="form-control" asp-items="(await productRepo.GetAllProduct())
+                                                                .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString()})" readOnly style="pointer-events:none">
+                            <option value="">Please select Product</option>
+                        </select>
+                    }
+                    else
+                    {
+                        <select asp-for="productID" class="form-control" asp-items="(await productRepo.GetAllProduct())
+                                                                .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString()})">
+                            <option value="">Please select Product</option>
+                        </select>
+                    }
+                    @*<select asp-for="productID" class="form-control" asp-items="(await productRepo.GetAllProduct())
                                                                 .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString()})">
                         <option value="">Please select Product</option>
-                    </select>
+                    </select>*@
                     <div class="vali"><span asp-validation-for="productID" class="text-danger"></span></div>
                 </div>
             </div>

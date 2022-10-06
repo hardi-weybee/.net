@@ -45,8 +45,8 @@ namespace Exercise_3.Controllers
         }
 
 
-        [HttpGet("EditParty/{id}/{name}")]
-        public ViewResult EditParty([FromRoute]int id, [FromRoute] string name, int isSuccess = 0)
+        [HttpGet("EditParty/{id}")]
+        public ViewResult EditParty([FromRoute]int id, string name, int isSuccess = 0)
         {
             ViewBag.Success = isSuccess;
             ViewBag.id = id;
@@ -59,7 +59,7 @@ namespace Exercise_3.Controllers
             return View("AddParty", partyModel);
         }
 
-        [HttpPost("EditParty/{id}/{name}")]
+        [HttpPost("EditParty/{id}")]
         public async Task<IActionResult> EditParty(PartyModel model, [FromRoute]int id)
         {
             if (ModelState.IsValid)

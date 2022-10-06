@@ -46,22 +46,22 @@ namespace Exercise_3.Controllers
         }
 
         
-        [HttpGet("EditProductRate/{id}/{proname}/{rate}/{rdate}")]
-        public ViewResult EditProductRate([FromRoute] int id, [FromRoute] int proname, [FromRoute] int rate, [FromRoute] DateTime rdate, int isSuccess = 0)
+        [HttpGet("EditProductRate/{id}")]
+        public ViewResult EditProductRate([FromRoute] int id, int productname, int rate, DateTime rdate, int isSuccess = 0)
         {
             ViewBag.DateOfRate = rdate.ToString("yyyy-MM-dd");
             ViewBag.Success = isSuccess;
             ViewBag.ID = id;
             ProductRateModel rateModel = new ProductRateModel()
             {
-                productID = proname,
+                productID = productname,
                 Rate = rate,
                 DateOfRate = rdate
             };
             return View("AddProductRate", rateModel);
         }
 
-        [HttpPost("EditProductRate/{id}/{proname}/{rate}/{rdate}")]
+        [HttpPost("EditProductRate/{id}")]
         public async Task<IActionResult> EditProductRate(ProductRateModel model, [FromRoute] int id)
         {
             if (ModelState.IsValid)
