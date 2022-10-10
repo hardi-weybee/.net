@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
-using Specss.API.Models;
+using SpecsAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Specss.API.Repository
+namespace SpecsAPI.Repository
 {
     public interface ISpecssRepository
     {
-        Task<List<SpecsModel>> GetAllSpecsAsync();
+        Task<List<SpecModel>> GetAllSpecsAsync();
 
-        Task<SpecsModel> GetSpecsByIDAsync(int specID);
+        Task<SpecModel> GetSpecsByIDAsync(int specID);
 
-        Task<int> AddSpecAsync(SpecsModel specModel);
+        Task<int> AddSpecAsync(SpecModel specModel);
 
-        Task UpdateSpecsAsync(int specID, SpecsModel specModel);
+        Task UpdateSpecsAsync(int specID, SpecModel specModel);
 
         Task UpdateSpecPatchAsync(int specID, JsonPatchDocument specModel);
 

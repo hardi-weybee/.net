@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Specss.API.Data;
+using SpecsAPI.Data;
 
-namespace Specss.API.Migrations
+namespace Specs.API.Migrations
 {
-    [DbContext(typeof(SpecsContext))]
+    [DbContext(typeof(SpecsDBContext))]
     [Migration("20220910095546_init")]
     partial class init
     {

@@ -1,33 +1,34 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
-using Specss.API.Data;
-using Specss.API.Models;
+using SpecsAPI.Repository;
+using SpecsAPI.Data;
+using SpecsAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Specss.API.Repository
+namespace SpecsAPI.Repository
 {
     public class SpecssRepository : ISpecssRepository
     {
-        private readonly SpecsContext _context;
+        private readonly SpecsDBContext _context;
         private readonly IMapper _mapper;
 
-        public SpecssRepository(SpecsContext context, IMapper mapper)
+        public SpecssRepository(SpecsDBContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
-        public async Task<List<SpecsModel>> GetAllSpecsAsync()
+        public async Task<List<SpecModel>> GetAllSpecsAsync()
         {
             var records = await _context.Specs.ToListAsync();         
-            return _mapper.Map<List<SpecsModel>>(records);
+            return _mapper.Map<List<SpecModel>>(records);
         }
 
-        public async Task<SpecsModel> GetSpecsByIDAsync(int specID)
+        public async Task<SpecModel> GetSpecsByIDAsync(int specID)
         {
             //var records = await _context.Specs.Where(x => x.ID == specID).Select(x => new SpecsModel()
             //{
@@ -39,12 +40,12 @@ namespace Specss.API.Repository
             //return records;
 
             var spec = await _context.Specs.FindAsync(specID);
-            return _mapper.Map<SpecsModel>(spec);
+            return _mapper.Map<SpecModel>(spec);
         }
 
-        public async Task<int> AddSpecAsync(SpecsModel specModel)
+        public async Task<int> AddSpecAsync(SpecModel specModel)
         {
-            var spec = new Specs()
+            var spec = new Specss()
             {
                 Title = specModel.Title,
                 Description = specModel.Description
@@ -56,7 +57,7 @@ namespace Specss.API.Repository
             return spec.ID;
         }
 
-        public async Task UpdateSpecsAsync(int specID, SpecsModel specModel)
+        public async Task UpdateSpecsAsync(int specID, SpecModel specModel)
         {
             //var spec = await _context.Specs.FindAsync(specID);
             //if (spec != null)
@@ -66,7 +67,7 @@ namespace Specss.API.Repository
             //    await _context.SaveChangesAsync();
             //}
 
-            var spec = new Specs()
+            var spec = new Specss()
             {
                 ID = specID,
                 Title = specModel.Title,
@@ -90,7 +91,10 @@ namespace Specss.API.Repository
 
         public async Task DeleteSpecAsync(int specID)
         {
-            var spec = new Specs() { ID = specID };
+            var spec = new Specss() 
+            { 
+                ID = specID 
+            };
 
             _context.Specs.Remove(spec);
             await _context.SaveChangesAsync();

@@ -1,6 +1,6 @@
 using System;
 
-namespace Specss.API
+namespace Specs.API
 {
     public class WeatherForecast
     {

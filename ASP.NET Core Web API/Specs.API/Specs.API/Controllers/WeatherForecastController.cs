@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Specss.API.Controllers
+namespace Specs.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

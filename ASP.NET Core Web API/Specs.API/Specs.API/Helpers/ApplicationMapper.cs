@@ -1,18 +1,18 @@
 ﻿using AutoMapper;
-using Specss.API.Models;
-using Specss.API.Data;
+using SpecsAPI.Models;
+using SpecsAPI.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Specss.API.Helpers
+namespace Specs.API.Helpers
 {
     public class ApplicationMapper : Profile
     {
         public ApplicationMapper()
         {
-            CreateMap<Specs, SpecsModel>().ReverseMap();
+            CreateMap<Specss, SpecModel>().ReverseMap();
         }
     }
 }

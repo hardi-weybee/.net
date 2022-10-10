@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
-namespace Specss.API.Models
+namespace SpecsAPI.Data
 {
-    public class SpecsModel
-    {        
+    public class Specss
+    {
         public int ID { get; set; }
-
-        [Required]
         public string Title { get; set; }
-        public string Description { get; set; }
+        public String Description { get; set; }
     }
 }

@@ -1,22 +1,24 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Specss.API.Models;
-using Specss.API.Repository;
+using SpecsAPI.Models;
+using SpecsAPI.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Specss.API.Controllers
+namespace SpecsAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SpecsController : ControllerBase
+    [Authorize]
+    public class SpecssController : ControllerBase
     {
         private readonly ISpecssRepository _specsRepository;
 
-        public SpecsController(ISpecssRepository specsRepository)
+        public SpecssController(ISpecssRepository specsRepository)
         {
             _specsRepository = specsRepository;
         }
@@ -26,7 +28,7 @@ namespace Specss.API.Controllers
         {
             var specs = await _specsRepository.GetAllSpecsAsync();
             return Ok(specs);
-        }
+         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSpecsByID([FromRoute] int id)
@@ -41,7 +43,7 @@ namespace Specss.API.Controllers
 
 
         [HttpPost("")]
-        public async Task<IActionResult> AddNewSpec([FromBody] SpecsModel specModel)
+        public async Task<IActionResult> AddNewSpec([FromBody] SpecModel specModel)
         {
             var id = await _specsRepository.AddSpecAsync(specModel);
             return CreatedAtAction(nameof(GetSpecsByID), new { id = id, Controller = "Specs"}, id);
@@ -49,7 +51,7 @@ namespace Specss.API.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateSpec([FromBody] SpecsModel specModel, [FromRoute]int id)
+        public async Task<IActionResult> UpdateSpec([FromBody] SpecModel specModel, [FromRoute]int id)
         {
             await _specsRepository.UpdateSpecsAsync(id, specModel);
             return Ok();

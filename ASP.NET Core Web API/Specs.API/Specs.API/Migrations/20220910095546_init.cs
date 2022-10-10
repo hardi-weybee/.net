@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Specss.API.Migrations
+namespace Specs.API.Migrations
 {
     public partial class init : Migration
     {
