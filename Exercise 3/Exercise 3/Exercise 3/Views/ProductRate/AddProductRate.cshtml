@@ -77,7 +77,8 @@
             <div class="form-group row">
                 <label asp-for="DateOfRate" class="line1 col-sm-2" style="font-size:x-large"></label>
                 <div class="line2 col-sm-10">
-                    <input asp-for="DateOfRate" type="date" class="form-control" value="@ViewBag.DateOfRate" />
+                    @*<input asp-for="DateOfRate" type="date" class="form-control" value="@ViewBag.DateOfRate" />*@
+                    <input asp-for="DateOfRate" type="date" class="form-control" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
                     <div class="vali"><span asp-validation-for="DateOfRate" class="text-danger"></span></div>
                 </div>
             </div>
