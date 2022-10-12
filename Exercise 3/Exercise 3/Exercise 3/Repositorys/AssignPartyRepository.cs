@@ -44,14 +44,14 @@ namespace Exercise_3.Repositorys
             return records.ID;
         }
 
-        public async Task<int> EditAssignParty(AssignPartyModel model, [FromRoute] int id)
+        public async Task<int> EditAssignParty(AssignPartyModel model)
         {
             var a = _context.AssignParty.Where(x => x.partyID == model.partyID && x.productID == model.productID).FirstOrDefault();
             if (a == null)
             {
                 var records = new AssignParty()
                 {
-                    ID = id,
+                    ID = model.ID,
                     partyID = model.partyID,
                     productID = model.productID
                 };

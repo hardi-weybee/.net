@@ -62,16 +62,16 @@ namespace Exercise_3.Controllers
         }
 
         [HttpPost("EditProductRate/{id}")]
-        public async Task<IActionResult> EditProductRate(ProductRateModel model, [FromRoute] int id)
+        public async Task<IActionResult> EditProductRate(ProductRateModel model)
         {
             if (ModelState.IsValid)
             {
-                var suc = await _rateRepo.EditProductRate(model, id);
-                if (id > 0)
+                var suc = await _rateRepo.EditProductRate(model);
+                if (model.ID > 0)
                 {
-                    return RedirectToAction(nameof(EditProductRate), new { isSuccess = suc, ProductRateId = id });
+                    return RedirectToAction(nameof(EditProductRate), new { isSuccess = suc, ProductRateId = model.ID });
                 }
-                return RedirectToAction(nameof(EditProductRate), new { isSuccess = 2 });
+                return RedirectToAction(nameof(EditProductRate), new { isSuccess = suc });
             }
             return View("AddProductRate");
         }

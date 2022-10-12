@@ -58,10 +58,6 @@
                             <option value="">Please select Product</option>
                         </select>
                     }
-                    @*<select asp-for="productID" class="form-control" asp-items="(await productRepo.GetAllProduct())
-                                                                .Select(x => new SelectListItem() { Text = x.ProductName, Value = x.ID.ToString()})">
-                        <option value="">Please select Product</option>
-                    </select>*@
                     <div class="vali"><span asp-validation-for="productID" class="text-danger"></span></div>
                 </div>
             </div>

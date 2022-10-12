@@ -59,16 +59,16 @@ namespace Exercise_3.Controllers
         }
 
         [HttpPost("EditAssignParty/{id}")]
-        public async Task<IActionResult> EditAssignParty(AssignPartyModel model, [FromRoute] int id)
+        public async Task<IActionResult> EditAssignParty(AssignPartyModel model)
         {
             if (ModelState.IsValid)
             {
-                var suc = await _assignRepo.EditAssignParty(model, id);
-                if (id > 0)
+                var suc = await _assignRepo.EditAssignParty(model);
+                if (model.ID > 0)
                 {
-                    return RedirectToAction(nameof(EditAssignParty), new { isSuccess = suc, AssignPartyId = id });
+                    return RedirectToAction(nameof(EditAssignParty), new { isSuccess = suc, AssignPartyId = model.ID });
                 }
-                return RedirectToAction(nameof(EditAssignParty), new { isSuccess = 2 });
+                return RedirectToAction(nameof(EditAssignParty), new { isSuccess = suc });
             }
             return View("AddAssignParty");
         }

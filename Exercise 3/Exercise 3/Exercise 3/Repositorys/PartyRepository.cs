@@ -45,14 +45,14 @@ namespace Exercise_3.Repositorys
             return 0;
         }
 
-        public async Task<int> EditParty(PartyModel model, [FromRoute] int id)
+        public async Task<int> EditParty(PartyModel model)
         {
             var a = _context.Party.Where(x => x.PartyName == model.PartyName).FirstOrDefault();
             if (a == null)
             {
                 var records = new Party()
                 {
-                    ID = id,
+                    ID = model.ID,
                     PartyName = model.PartyName
                 };
                 _context.Party.Update(records);

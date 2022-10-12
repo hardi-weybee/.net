@@ -42,14 +42,14 @@ namespace Exercise_3.Repositorys
             return 0;
         }
 
-        public async Task<int> EditProduct(ProductModel model, [FromRoute] int id)
+        public async Task<int> EditProduct(ProductModel model)
         {
             var a = _context.Product.Where(x => x.ProductName == model.ProductName).FirstOrDefault();
             if (a == null)
             {
                 var records = new Product()
                 {
-                    ID = id,
+                    ID = model.ID,
                     ProductName = model.ProductName
                 };
                 _context.Product.Update(records);
@@ -69,5 +69,16 @@ namespace Exercise_3.Repositorys
             await _context.SaveChangesAsync();
             return true;
         }
+
+        //public async Task<List<ProductModel>> getProductsNotAssigned(int productid)
+        //{
+        //    //return await _context.Product.Select(assign => new AssignPartyModel()
+        //    //{
+        //    //    partyID = assign.partyID,
+        //    //    Party = assign.Party
+        //    //}).Distinct().ToListAsync();
+        //    var store = await _context.Product.Except(_context.ProductRate.Where(x => x.productID == productid).Include(x => x.Product).Select(x => x.Product)).ToListAsync();
+        //    return _mapper.Map<List<ProductModel>>(store);
+        //}
     }
 }

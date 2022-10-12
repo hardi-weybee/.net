@@ -61,16 +61,16 @@ namespace Exercise_3.Controllers
         }
 
         [HttpPost("EditProduct/{id}")]
-        public async Task<IActionResult> EditProduct(ProductModel model, [FromRoute] int id)
+        public async Task<IActionResult> EditProduct(ProductModel model)
         {
             if (ModelState.IsValid)
             {
-                var suc = await _productRepo.EditProduct(model, id);
-                if (id > 0)
+                var suc = await _productRepo.EditProduct(model);
+                if (model.ID > 0)
                 {
-                    return RedirectToAction(nameof(EditProduct), new { isSuccess = suc, ProductId = id, name=model.ProductName });
+                    return RedirectToAction(nameof(EditProduct), new { isSuccess = suc, ProductId = model.ID, name=model.ProductName });
                 }
-                return RedirectToAction(nameof(EditProduct), new { isSuccess = 2 });
+                return RedirectToAction(nameof(EditProduct), new { isSuccess = suc });
             }
             return View("AddProduct");
         }
@@ -85,5 +85,11 @@ namespace Exercise_3.Controllers
             }
             return null;
         }
+
+        //public async Task<IActionResult> getProductsNotAssigned(int partyID)
+        //{
+        //    var product = await _productRepo.getProductsNotAssigned(partyID);
+        //    return View(product);
+        //}
     }
 }

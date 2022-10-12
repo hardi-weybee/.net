@@ -44,14 +44,14 @@ namespace Exercise_3.Repositorys
             return 0;
         }
 
-        public async Task<int> EditProductRate(ProductRateModel model, [FromRoute] int id)
+        public async Task<int> EditProductRate(ProductRateModel model)
         {
             var a = _context.ProductRate.Where(x => x.productID == model.productID && x.Rate == model.Rate && x.DateOfRate == model.DateOfRate).FirstOrDefault();
             if (a == null)
             {
                 var records = new ProductRate()
                 {
-                    ID = id,
+                    ID = model.ID,
                     productID = model.productID,
                     Rate = model.Rate,
                     DateOfRate = model.DateOfRate

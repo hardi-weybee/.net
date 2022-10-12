@@ -8,8 +8,9 @@ namespace Exercise_3.Repositorys
     public interface IProductRepository
     {
         Task<bool> DeleteProduct([FromRoute] int id);
-        Task<int> EditProduct(ProductModel model, [FromRoute] int id);
+        Task<int> EditProduct(ProductModel model);
         Task<List<ProductModel>> GetAllProduct();
         Task<int> SaveProduct(ProductModel model);
+        //Task<object> getProductsNotAssigned(int partyID);
     }
 }
